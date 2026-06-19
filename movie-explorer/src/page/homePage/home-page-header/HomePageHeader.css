@@ -1,20 +1,3 @@
-body {
-  margin: 0;
-  font-family: Poppins;
-}
-
-p {
-  margin: 0;
-}
-
-button {
-  font: inherit;
-}
-
-* {
-  box-sizing: border-box;
-}
-
 .container-header-main {
   display: flex;
   justify-content: center;
