@@ -1,9 +1,9 @@
-import { HomePageHeader } from "./page/homePage/home-page-header/HomePageHeader";
+import { HomePage } from "./page/homePage/HomePage";
 
 function App() {
   return (
     <>
-      <HomePageHeader />
+      <HomePage />
     </>
   );
 }

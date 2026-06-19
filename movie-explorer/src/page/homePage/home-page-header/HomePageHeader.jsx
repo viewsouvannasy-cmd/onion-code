@@ -27,6 +27,12 @@ export function HomePageHeader() {
           <div className="profile-user"></div>
         </div>
       </div>
+      <div className="container-select-section-suppost">
+        <button>Movie</button>
+        <button>Series</button>
+        <button>Anime</button>
+        <button>Cartoon</button>
+      </div>
     </header>
   );
 }
