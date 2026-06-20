@@ -1,6 +1,13 @@
 import "./HomePageHeader.css";
+import { useNavigate } from "react-router";
 
 export function HomePageHeader() {
+  const navigate = useNavigate();
+
+  function handleClick(sectionName) {
+    navigate(`/${sectionName}`);
+  }
+
   return (
     <header className="container-header-main">
       <div className="container-header">
@@ -12,10 +19,10 @@ export function HomePageHeader() {
             </p>
           </div>
           <div className="container-select-section">
-            <button>Movie</button>
-            <button>Series</button>
-            <button>Anime</button>
-            <button>Cartoon</button>
+            <button onClick={() => handleClick("movie")}>Movie</button>
+            <button onClick={() => handleClick("series")}>Series</button>
+            <button onClick={() => handleClick("anime")}>Anime</button>
+            <button onClick={() => handleClick("cartoon")}>Cartoon</button>
           </div>
         </div>
 
@@ -28,10 +35,10 @@ export function HomePageHeader() {
         </div>
       </div>
       <div className="container-select-section-suppost">
-        <button>Movie</button>
-        <button>Series</button>
-        <button>Anime</button>
-        <button>Cartoon</button>
+        <button onClick={() => handleClick("movie")}>Movie</button>
+        <button onClick={() => handleClick("series")}>Series</button>
+        <button onClick={() => handleClick("anime")}>Anime</button>
+        <button onClick={() => handleClick("cartoon")}>Cartoon</button>
       </div>
     </header>
   );
