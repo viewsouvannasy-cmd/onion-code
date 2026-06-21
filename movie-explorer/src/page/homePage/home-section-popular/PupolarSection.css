@@ -1,0 +1,31 @@
+.container-pupolar-section-main {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.container-pupolar-section {
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 20px;
+}
+
+.container-title {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container-title h3 {
+  font-weight: 550;
+}
+
+.container-title a {
+  text-decoration: none;
+  color: #a0d755;
+  font-size: 15px;
+}
+
+.container-title a:hover {
+  text-decoration: underline;
+}
