@@ -1,28 +1,32 @@
 import "./HomePageHeader.css";
-import { useNavigate } from "react-router";
+import { Link } from "react-router";
 
 export function HomePageHeader() {
-  const navigate = useNavigate();
-
-  function handleClick(sectionName) {
-    navigate(`/${sectionName}`);
-  }
-
   return (
     <header className="container-header-main">
       <div className="container-header">
         <div className="header-left-section">
-          <div className="box-logo">
-            <img src="image/onion.png" />
-            <p>
-              <span>n</span>ion
-            </p>
-          </div>
+          <Link className="link-home-page" to="/">
+            <div className="box-logo">
+              <img src="image/onion.png" />
+              <p>
+                <span>n</span>ion
+              </p>
+            </div>
+          </Link>
           <div className="container-select-section">
-            <button onClick={() => handleClick("movie")}>Movie</button>
-            <button onClick={() => handleClick("series")}>Series</button>
-            <button onClick={() => handleClick("anime")}>Anime</button>
-            <button onClick={() => handleClick("cartoon")}>Cartoon</button>
+            <Link to="/movies">
+              <button>Movie</button>
+            </Link>
+            <Link to="/series">
+              <button>Series</button>
+            </Link>
+            <Link to="/anime">
+              <button>Anime</button>
+            </Link>
+            <Link to="/cartoon">
+              <button>Cartoon</button>
+            </Link>
           </div>
         </div>
 
@@ -35,10 +39,10 @@ export function HomePageHeader() {
         </div>
       </div>
       <div className="container-select-section-suppost">
-        <button onClick={() => handleClick("movie")}>Movie</button>
-        <button onClick={() => handleClick("series")}>Series</button>
-        <button onClick={() => handleClick("anime")}>Anime</button>
-        <button onClick={() => handleClick("cartoon")}>Cartoon</button>
+        <button>Movie</button>
+        <button>Series</button>
+        <button>Anime</button>
+        <button>Cartoon</button>
       </div>
     </header>
   );

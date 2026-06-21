@@ -1,15 +1,14 @@
 import { HomePageHeader } from "./home-page-header/HomePageHeader";
 import { SectionSearch } from "./home-section-search/SectionSearch";
-export function HomePage() {
+export function AnimeSection() {
   const containmentState = {
-    genrePath: "trending/all/week?",
-    detail: "",
+    genrePath: "discover/tv?",
+    detail:
+      "&with_genres=16&with_origin_country=JP&language=en-US&sort_by=popularity.desc",
   };
+
   return (
     <>
-      <link rel="icon" href="image/onion.png" />
-      <title>Onion</title>
-
       <HomePageHeader />
       <SectionSearch containmentState={containmentState} />
     </>

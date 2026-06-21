@@ -1,15 +1,14 @@
 import { HomePageHeader } from "./home-page-header/HomePageHeader";
 import { SectionSearch } from "./home-section-search/SectionSearch";
-export function HomePage() {
+
+export function MovieSection() {
   const containmentState = {
-    genrePath: "trending/all/week?",
+    genrePath: "discover/movie?",
     detail: "",
   };
+
   return (
     <>
-      <link rel="icon" href="image/onion.png" />
-      <title>Onion</title>
-
       <HomePageHeader />
       <SectionSearch containmentState={containmentState} />
     </>

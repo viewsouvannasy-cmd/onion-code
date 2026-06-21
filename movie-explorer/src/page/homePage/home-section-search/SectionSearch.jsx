@@ -1,17 +1,25 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./SectionSearch.css";
-export function SectionSearch({ url, urlImage }) {
-  const [backdrop, setBackdrop] = useState([]);
+
+export function SectionSearch({ containmentState }) {
+  const [backdrop, setBackdrop] = useState(null);
   const [genresMovie, setGenresMovie] = useState([]);
 
   useEffect(() => {
     const loadBackdrop = async () => {
-      let response = await axios.get(url);
+      let response = await axios.get(
+        `https://api.themoviedb.org/3/${containmentState.genrePath}api_key=cb8d9a517e7387524c6cd936f1752bc0${containmentState.detail}`,
+      );
+
       const imageArray = response.data.results
         .filter((movie) => movie.backdrop_path !== null)
-        .map((movie) => `${urlImage}${movie.backdrop_path}`);
+        .map(
+          (movie) =>
+            `https://image.tmdb.org/t/p/original${movie.backdrop_path}`,
+        );
       const randomBackdrop = Math.floor(Math.random() * imageArray.length) + 0;
+
       setBackdrop(imageArray[randomBackdrop]);
 
       response = await axios.get(
@@ -22,7 +30,7 @@ export function SectionSearch({ url, urlImage }) {
     };
 
     loadBackdrop();
-  }, []);
+  }, [containmentState]);
 
   return (
     <div className="container-search-section">
