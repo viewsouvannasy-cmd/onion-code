@@ -26,6 +26,39 @@ export function PupolarSection({ containmentState }) {
           </Link>
         </div>
       </div>
+      <div className="container-movie-flex">
+        {dataMovie.slice(0, 7).map((movie) => {
+          const urlPoster = `https://image.tmdb.org/t/p/original${movie.poster_path}`;
+
+          console.log(movie);
+          return (
+            <div key={movie.id} className="container-movie">
+              <img src={urlPoster} />
+              <div className="container-movie-detail">
+                <p>{movie.title || movie.name}</p>
+                <span>{movie.release_date || movie.first_air_date}</span>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      <div className="container-movie-flex">
+        {dataMovie.slice(10, 17).map((movie) => {
+          const urlPoster = `https://image.tmdb.org/t/p/original${movie.poster_path}`;
+
+          console.log(movie);
+          return (
+            <div key={movie.id} className="container-movie">
+              <img src={urlPoster} />
+              <div className="container-movie-detail">
+                <p>{movie.title || movie.name}</p>
+                <span>{movie.release_date || movie.first_air_date}</span>
+              </div>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }

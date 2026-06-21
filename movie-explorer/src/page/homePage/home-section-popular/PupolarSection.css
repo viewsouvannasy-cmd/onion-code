@@ -1,6 +1,9 @@
 .container-pupolar-section-main {
   width: 100%;
-  margin-top: 20px;
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .container-pupolar-section {
@@ -18,6 +21,7 @@
 
 .container-title h3 {
   font-weight: 550;
+  font-size: 18px;
 }
 
 .container-title a {
@@ -28,4 +32,48 @@
 
 .container-title a:hover {
   text-decoration: underline;
+}
+
+.container-movie-flex {
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 20px;
+  display: flex;
+  gap: 20px;
+  overflow: scroll;
+  scrollbar-width: none;
+  margin-top: 15px;
+}
+
+.container-movie {
+  width: 148px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.container-movie img {
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 5px;
+}
+
+.container-movie-detail {
+  display: flex;
+  flex-direction: column;
+}
+
+.container-movie-detail p {
+  font-size: 15px;
+  font-weight: 500;
+  overflow-wrap: break-word;
+  line-height: 19px;
+}
+
+.container-movie-detail span {
+  font-size: 12px;
+  font-family: inter;
+  margin-top: 3px;
 }
