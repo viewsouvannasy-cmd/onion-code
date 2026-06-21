@@ -1,5 +1,5 @@
-import { HomePageHeader } from "./home-page-header/HomePageHeader";
-import { SectionSearch } from "./home-section-search/SectionSearch";
+import { HomePageHeader } from "../homePage/home-page-header/HomePageHeader";
+import { SectionSearch } from "../homePage/home-section-search/SectionSearch";
 
 export function MovieSection() {
   const containmentState = {

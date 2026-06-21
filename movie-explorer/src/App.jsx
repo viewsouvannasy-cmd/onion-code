@@ -1,9 +1,9 @@
 import { Routes, Route } from "react-router";
 import { HomePage } from "./page/homePage/HomePage";
-import { MovieSection } from "./page/homePage/MovieSection";
-import { AnimeSection } from "./page/homePage/AnimeSection";
-import { SeriesSection } from "./page/homePage/SeriesSection";
-import { CartoonSection } from "./page/homePage/CartoonSection";
+import { MovieSection } from "./page/selectSection/MovieSection";
+import { AnimeSection } from "./page/selectSection/AnimeSection";
+import { SeriesSection } from "./page/selectSection/SeriesSection";
+import { CartoonSection } from "./page/selectSection/CartoonSection";
 function App() {
   return (
     <>
