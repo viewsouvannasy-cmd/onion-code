@@ -9,7 +9,7 @@ export function SectionSearch({ containmentState }) {
   useEffect(() => {
     const loadBackdrop = async () => {
       let response = await axios.get(
-        `https://api.themoviedb.org/3/${containmentState.genrePath}api_key=cb8d9a517e7387524c6cd936f1752bc0${containmentState.detail}`,
+        `https://api.themoviedb.org/3/${containmentState.genrePath}?api_key=cb8d9a517e7387524c6cd936f1752bc0${containmentState.detail}`,
       );
 
       const imageArray = response.data.results

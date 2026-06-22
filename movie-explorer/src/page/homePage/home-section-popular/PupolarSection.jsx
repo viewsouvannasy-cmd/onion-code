@@ -9,7 +9,7 @@ export function PupolarSection({ containmentState }) {
   useEffect(() => {
     const fetchMovie = async () => {
       let response = await axios.get(
-        `https://api.themoviedb.org/3/${containmentState.genrePath}api_key=cb8d9a517e7387524c6cd936f1752bc0${containmentState.detail}`,
+        `https://api.themoviedb.org/3/${containmentState.genrePath}?api_key=cb8d9a517e7387524c6cd936f1752bc0${containmentState.detail}`,
       );
       setDataMovie(response.data.results);
     };
@@ -30,7 +30,6 @@ export function PupolarSection({ containmentState }) {
         {dataMovie.slice(0, 7).map((movie) => {
           const urlPoster = `https://image.tmdb.org/t/p/original${movie.poster_path}`;
 
-          console.log(movie);
           return (
             <div key={movie.id} className="container-movie">
               <img src={urlPoster} />
@@ -47,7 +46,6 @@ export function PupolarSection({ containmentState }) {
         {dataMovie.slice(10, 17).map((movie) => {
           const urlPoster = `https://image.tmdb.org/t/p/original${movie.poster_path}`;
 
-          console.log(movie);
           return (
             <div key={movie.id} className="container-movie">
               <img src={urlPoster} />

@@ -37,12 +37,12 @@
 .container-movie-flex {
   width: 100%;
   max-width: 1200px;
-  padding: 0 20px;
   display: flex;
   gap: 20px;
   overflow: scroll;
   scrollbar-width: none;
   margin-top: 15px;
+  padding: 0 20px;
 }
 
 .container-movie {

@@ -4,7 +4,7 @@ import { PupolarSection } from "./home-section-popular/PupolarSection";
 import { TrendingSection } from "./home-trending/TrendingSection";
 export function HomePage() {
   const containmentState = {
-    genrePath: "trending/all/week?",
+    genrePath: "trending/all/week",
     detail: "",
   };
   return (
