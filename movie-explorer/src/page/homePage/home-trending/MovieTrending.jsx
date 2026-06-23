@@ -24,7 +24,9 @@ export function MovieTrending({ movie, index, containmentState }) {
       <h2>{index + 1}</h2>
       <img src={urlPoster} />
       <div className="container-vote">
-        <p>{movie.title || movie.name}</p>
+        <div>
+          <p>{movie.title || movie.name}</p>
+        </div>
         <span>
           {genreMovie} &#183; {year.slice(0, 4)}
         </span>

@@ -2,6 +2,7 @@ import { HomePageHeader } from "./home-page-header/HomePageHeader";
 import { SectionSearch } from "./home-section-search/SectionSearch";
 import { PupolarSection } from "./home-section-popular/PupolarSection";
 import { TrendingSection } from "./home-trending/TrendingSection";
+import { AwardsSection } from "./home-awards-section/AwardsSection";
 export function HomePage() {
   const containmentState = {
     genrePath: "trending/all/week",
@@ -16,6 +17,7 @@ export function HomePage() {
       <SectionSearch containmentState={containmentState} />
       <PupolarSection containmentState={containmentState} />
       <TrendingSection containmentState={containmentState} />
+      <AwardsSection containmentState={containmentState} />
     </>
   );
 }

@@ -3,7 +3,7 @@ import { SectionSearch } from "../homePage/home-section-search/SectionSearch";
 
 export function MovieSection() {
   const containmentState = {
-    genrePath: "discover/movie?",
+    genrePath: "discover/movie",
     detail: "",
   };
 
