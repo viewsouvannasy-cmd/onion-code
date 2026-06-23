@@ -26,7 +26,7 @@ export function SectionSearch({ containmentState }) {
         `https://api.themoviedb.org/3/genre/movie/list?api_key=cb8d9a517e7387524c6cd936f1752bc0`,
       );
 
-      setGenresMovie(response.data.genres.slice(0, 16));
+      setGenresMovie(response.data.genres.slice(0, 15));
     };
 
     loadBackdrop();

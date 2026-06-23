@@ -24,29 +24,33 @@ export function TrendingSection({ containmentState }) {
           }
         }
       }
-      setRate(dataMovie.reverse().slice(0, 3));
+      setRate(dataMovie.reverse().slice(0, 10));
     };
 
     fetchRate();
   }, [containmentState]);
 
   return (
-    <div className="container-trending-section-main">
-      <div className="container-trending-section">
-        <h3>Trending this week</h3>
+    <>
+      <div className="container-trending-section-main">
+        <div className="container-trending-section">
+          <h3>Trending this week</h3>
+        </div>
       </div>
-      <div className="container-movie-trending">
-        {rate.map((movie, index) => {
-          return (
-            <MovieTrending
-              key={movie.id}
-              movie={movie}
-              index={index}
-              containmentState={containmentState}
-            />
-          );
-        })}
+      <div className="container-movie-trending-main">
+        <div className="container-movie-trending">
+          {rate.map((movie, index) => {
+            return (
+              <MovieTrending
+                key={movie.id}
+                movie={movie}
+                index={index}
+                containmentState={containmentState}
+              />
+            );
+          })}
+        </div>
       </div>
-    </div>
+    </>
   );
 }

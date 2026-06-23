@@ -1,5 +1,7 @@
 import { HomePageHeader } from "../homePage/home-page-header/HomePageHeader";
 import { SectionSearch } from "../homePage/home-section-search/SectionSearch";
+import { PupolarSection } from "../homePage/home-section-popular/PupolarSection";
+import { TrendingSection } from "../homePage/home-trending/TrendingSection";
 export function AnimeSection() {
   const containmentState = {
     genrePath: "discover/tv",
@@ -11,6 +13,8 @@ export function AnimeSection() {
     <>
       <HomePageHeader />
       <SectionSearch containmentState={containmentState} />
+      <PupolarSection containmentState={containmentState} />
+      <TrendingSection containmentState={containmentState} />
     </>
   );
 }

@@ -4,14 +4,14 @@
   align-items: center;
   flex-direction: column;
   margin-top: 30px;
+  padding: 0 30px;
 }
 
 .container-trending-section {
   display: flex;
   width: 100%;
   justify-content: start;
-  max-width: 1200px;
-  padding: 0 20px;
+  max-width: 1170px;
 }
 
 .container-trending-section h3 {
@@ -19,26 +19,39 @@
   font-size: 22px;
 }
 
-.container-movie-trending {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+.container-movie-trending-main {
+  display: flex;
   width: 100%;
-  justify-content: start;
-  max-width: 1200px;
-  padding: 0 20px;
-  column-gap: 20px;
-  row-gap: 20px;
+  justify-content: center;
   margin-top: 15px;
+  padding: 0 30px;
+}
+
+.container-movie-trending {
+  display: flex;
+  width: 100%;
+  max-width: 1170px;
+  gap: 20px;
+  padding: 10px 1px;
+  overflow-x: scroll;
+  justify-content: space-between;
+  scrollbar-width: none;
 }
 
 .movie-trending {
   display: flex;
-
-  width: 100%;
+  width: 373px;
   gap: 20px;
   box-shadow: 0 0 2px 0 black;
   border-radius: 10px;
   padding: 15px;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.movie-trending:hover {
+  background-color: rgb(245, 245, 245);
 }
 
 .movie-trending img {
@@ -49,7 +62,6 @@
 .movie-trending h2 {
   font-family: inter;
   font-size: 40px;
-  width: 20px;
 }
 
 .container-vote {
@@ -83,10 +95,4 @@
   height: 3px;
   background-color: #a0d755;
   border-radius: 1px;
-}
-
-@media (max-width: 866px) {
-  .container-movie-trending {
-    grid-template-columns: 1fr;
-  }
 }

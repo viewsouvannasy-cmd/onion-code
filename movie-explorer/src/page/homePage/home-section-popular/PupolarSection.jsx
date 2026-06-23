@@ -27,7 +27,7 @@ export function PupolarSection({ containmentState }) {
         </div>
       </div>
       <div className="container-movie-flex">
-        {dataMovie.slice(0, 7).map((movie) => {
+        {dataMovie.slice(0, 8).map((movie) => {
           const urlPoster = `https://image.tmdb.org/t/p/original${movie.poster_path}`;
 
           return (
@@ -43,7 +43,7 @@ export function PupolarSection({ containmentState }) {
       </div>
 
       <div className="container-movie-flex">
-        {dataMovie.slice(10, 17).map((movie) => {
+        {dataMovie.slice(10, 18).map((movie) => {
           const urlPoster = `https://image.tmdb.org/t/p/original${movie.poster_path}`;
 
           return (
