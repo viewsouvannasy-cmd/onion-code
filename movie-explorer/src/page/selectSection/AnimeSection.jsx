@@ -7,6 +7,7 @@ export function AnimeSection() {
     genrePath: "discover/tv",
     detail:
       "&with_genres=16&with_origin_country=JP&language=en-US&sort_by=popularity.desc",
+    media_type: "tv",
   };
 
   return (

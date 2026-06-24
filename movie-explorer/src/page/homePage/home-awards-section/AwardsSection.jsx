@@ -1,5 +1,31 @@
+import { useState, useEffect } from "react";
+import { sortArray } from "../../../utils/sortArray";
+import axios from "axios";
+import { AwardMoive } from "./AwardMovie";
 import "./AwardsSection.css";
 export function AwardsSection() {
+  const [movieRate, setMovieRate] = useState([]);
+  const [animeRate, setAnimeRate] = useState([]);
+
+  useEffect(() => {
+    const fetchMovieRate = async () => {
+      let response = await axios.get(
+        "https://api.themoviedb.org/3/discover/movie?api_key=cb8d9a517e7387524c6cd936f1752bc0&sort_by=vote_average.desc&vote_count.gte=1000&primary_release_year=2026&language=en-US",
+      );
+      setMovieRate(
+        sortArray(response.data.results, "vote_count").reverse().slice(0, 3),
+      );
+
+      response = await axios.get(
+        "https://api.themoviedb.org/3/discover/tv?api_key=cb8d9a517e7387524c6cd936f1752bc0&first_air_date_year=2026&with_origin_country=JP",
+      );
+      setAnimeRate(
+        sortArray(response.data.results, "vote_count").reverse().slice(0, 3),
+      );
+    };
+    fetchMovieRate();
+  }, []);
+
   return (
     <>
       <div className="container-award-section-main">
@@ -15,33 +41,22 @@ export function AwardsSection() {
           <div className="award-container">
             <h4>Movie</h4>
             <div className="box-award-movie">
-              <div className="container-detail-award">
-                <img src="https://www.apple.com/tv-pr/articles/2025/10/apple-original-films-blockbuster-feature-f1-the-movie-from-joseph-kosinski-to-make-global-streaming-debut-on-friday-december-12-2025/images/big-image/big-image-01/101325_F1_Streaming_Date_Announcement_Big_Image_01_big_image_post.jpg.large.jpg" />
-                <div className="box-background"></div>
-                <h1>1</h1>
-                <span>230 vote</span>
-                <p>F1 The Movie</p>
-              </div>
-              <div className="container-detail-award">
-                <img src="https://www.apple.com/tv-pr/articles/2025/10/apple-original-films-blockbuster-feature-f1-the-movie-from-joseph-kosinski-to-make-global-streaming-debut-on-friday-december-12-2025/images/big-image/big-image-01/101325_F1_Streaming_Date_Announcement_Big_Image_01_big_image_post.jpg.large.jpg" />
-              </div>
-              <div className="container-detail-award">
-                <img src="https://www.apple.com/tv-pr/articles/2025/10/apple-original-films-blockbuster-feature-f1-the-movie-from-joseph-kosinski-to-make-global-streaming-debut-on-friday-december-12-2025/images/big-image/big-image-01/101325_F1_Streaming_Date_Announcement_Big_Image_01_big_image_post.jpg.large.jpg" />
-              </div>
+              {movieRate.map((movie, index) => {
+                return (
+                  <AwardMoive key={movie.id} movie={movie} index={index} />
+                );
+              })}
             </div>
           </div>
+
           <div className="award-container-two">
-            <h4>Movie</h4>
+            <h4>Anime</h4>
             <div className="box-award-movie">
-              <div className="container-detail-award">
-                <img src="https://www.apple.com/tv-pr/articles/2025/10/apple-original-films-blockbuster-feature-f1-the-movie-from-joseph-kosinski-to-make-global-streaming-debut-on-friday-december-12-2025/images/big-image/big-image-01/101325_F1_Streaming_Date_Announcement_Big_Image_01_big_image_post.jpg.large.jpg" />
-              </div>
-              <div className="container-detail-award">
-                <img src="https://www.apple.com/tv-pr/articles/2025/10/apple-original-films-blockbuster-feature-f1-the-movie-from-joseph-kosinski-to-make-global-streaming-debut-on-friday-december-12-2025/images/big-image/big-image-01/101325_F1_Streaming_Date_Announcement_Big_Image_01_big_image_post.jpg.large.jpg" />
-              </div>
-              <div className="container-detail-award">
-                <img src="https://www.apple.com/tv-pr/articles/2025/10/apple-original-films-blockbuster-feature-f1-the-movie-from-joseph-kosinski-to-make-global-streaming-debut-on-friday-december-12-2025/images/big-image/big-image-01/101325_F1_Streaming_Date_Announcement_Big_Image_01_big_image_post.jpg.large.jpg" />
-              </div>
+              {animeRate.map((movie, index) => {
+                return (
+                  <AwardMoive key={movie.id} movie={movie} index={index} />
+                );
+              })}
             </div>
           </div>
         </div>

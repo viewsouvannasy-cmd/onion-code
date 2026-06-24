@@ -6,12 +6,17 @@ export function MovieTrending({ movie, index, containmentState }) {
 
   useEffect(() => {
     const fetchGenre = async () => {
-      const response = await axios.get(
-        `https://api.themoviedb.org/3/movie/${movie.id}?api_key=cb8d9a517e7387524c6cd936f1752bc0${containmentState.detail}`,
-      );
-      setGenreMovie(
-        response.data.genres.length === 0 ? "" : response.data.genres[0].name,
-      );
+      try {
+        const response = await axios.get(
+          `https://api.themoviedb.org/3/${movie.media_type || containmentState.media_type}/${movie.id}?api_key=cb8d9a517e7387524c6cd936f1752bc0`,
+        );
+
+        setGenreMovie(
+          response.data.genres.length === 0 ? "" : response.data.genres[0].name,
+        );
+      } catch (err) {
+        console.log(err, "data not found at trending movie section");
+      }
     };
     fetchGenre();
   }, [containmentState, movie]);

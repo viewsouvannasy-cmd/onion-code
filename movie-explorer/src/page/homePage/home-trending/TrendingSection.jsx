@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { MovieTrending } from "./MovieTrending";
+import { sortArray } from "../../../utils/sortArray";
 import "./TrendingSection.css";
 
 export function TrendingSection({ containmentState }) {
@@ -12,18 +13,8 @@ export function TrendingSection({ containmentState }) {
         `https://api.themoviedb.org/3/${containmentState.genrePath}?api_key=cb8d9a517e7387524c6cd936f1752bc0${containmentState.detail}`,
       );
 
-      const dataMovie = response.data.results;
-      let temp;
+      const dataMovie = sortArray(response.data.results, "vote_average");
 
-      for (let i = 0; i < dataMovie.length; i++) {
-        for (let j = i + 1; j < dataMovie.length; j++) {
-          if (dataMovie[i].vote_average > dataMovie[j].vote_average) {
-            temp = dataMovie[i];
-            dataMovie[i] = dataMovie[j];
-            dataMovie[j] = temp;
-          }
-        }
-      }
       setRate(dataMovie.reverse().slice(0, 10));
     };
 
