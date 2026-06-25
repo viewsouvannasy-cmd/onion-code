@@ -3,6 +3,7 @@ import { SectionSearch } from "./home-section-search/SectionSearch";
 import { PupolarSection } from "./home-section-popular/PupolarSection";
 import { TrendingSection } from "./home-trending/TrendingSection";
 import { AwardsSection } from "./home-awards-section/AwardsSection";
+import { FooterSection } from "./home-footer-section/FooterSection";
 export function HomePage() {
   const containmentState = {
     genrePath: "trending/all/week",
@@ -18,6 +19,7 @@ export function HomePage() {
       <PupolarSection containmentState={containmentState} />
       <TrendingSection containmentState={containmentState} />
       <AwardsSection containmentState={containmentState} />
+      <FooterSection containmentState={containmentState} />
     </>
   );
 }

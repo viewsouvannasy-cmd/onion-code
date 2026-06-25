@@ -49,6 +49,7 @@ export function PupolarSection({ containmentState }) {
           return (
             <div key={movie.id} className="container-movie">
               <img src={urlPoster} />
+
               <div className="container-movie-detail">
                 <p>{movie.title || movie.name}</p>
                 <span>{movie.release_date || movie.first_air_date}</span>

@@ -50,6 +50,8 @@
   display: flex;
   flex-direction: column;
   cursor: pointer;
+
+  border-radius: 5px;
 }
 
 .container-movie img {
@@ -62,6 +64,7 @@
 .container-movie-detail {
   display: flex;
   flex-direction: column;
+  background-color: white;
 }
 
 .container-movie-detail p {
