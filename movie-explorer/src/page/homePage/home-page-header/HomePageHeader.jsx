@@ -33,8 +33,12 @@ export function HomePageHeader() {
         <div className="header-right-section">
           <button className="review-btn">
             <img src="image/icon/star.png" />
+            <div className="tooltip-review">review</div>
           </button>
-          <button className="change-language-btn">EN</button>
+          <button className="change-language-btn">
+            EN
+            <div className="tooltip">language</div>
+          </button>
           <div className="profile-user"></div>
         </div>
       </div>

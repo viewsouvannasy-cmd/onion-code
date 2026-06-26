@@ -19,7 +19,7 @@ export function HomePage() {
       <PupolarSection containmentState={containmentState} />
       <TrendingSection containmentState={containmentState} />
       <AwardsSection containmentState={containmentState} />
-      <FooterSection containmentState={containmentState} />
+      <FooterSection />
     </>
   );
 }
