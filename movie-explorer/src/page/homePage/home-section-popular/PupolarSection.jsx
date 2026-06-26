@@ -17,6 +17,8 @@ export function PupolarSection({ containmentState }) {
     fetchMovie();
   }, [containmentState]);
 
+  console.log(dataMovie);
+
   return (
     <div className="container-pupolar-section-main">
       <div className="container-pupolar-section">

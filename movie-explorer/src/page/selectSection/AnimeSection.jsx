@@ -2,20 +2,26 @@ import { HomePageHeader } from "../homePage/home-page-header/HomePageHeader";
 import { SectionSearch } from "../homePage/home-section-search/SectionSearch";
 import { PupolarSection } from "../homePage/home-section-popular/PupolarSection";
 import { TrendingSection } from "../homePage/home-trending/TrendingSection";
+import { AwardsSection } from "../homePage/home-awards-section/AwardsSection";
+import { FooterSection } from "../homePage/home-footer-section/FooterSection";
 export function AnimeSection() {
   const containmentState = {
     genrePath: "discover/tv",
     detail:
-      "&with_genres=16&with_origin_country=JP&language=en-US&sort_by=popularity.desc",
+      "&with_genres=16&with_origin_country=JP&ilanguage=en-US&sort_by=popularity.desc",
     media_type: "tv",
   };
 
   return (
     <>
+      <link rel="icon" href="image/onion.png" />
+      <title>Onion - Anime</title>
       <HomePageHeader />
       <SectionSearch containmentState={containmentState} />
       <PupolarSection containmentState={containmentState} />
       <TrendingSection containmentState={containmentState} />
+      <AwardsSection containmentState={containmentState} />
+      <FooterSection />
     </>
   );
 }
