@@ -170,12 +170,85 @@
   opacity: 1;
 }
 
+.container-profile {
+  position: relative;
+}
+
 .profile-user {
-  cursor: pointer;
   width: 30px;
   height: 30px;
   background-color: rgb(227, 227, 227);
   border-radius: 50px;
+  cursor: pointer;
+  border: none;
+}
+.arror {
+  width: 8px;
+  height: 8px;
+  background-color: white;
+  position: absolute;
+  bottom: -8px;
+  right: 12px;
+  transform: rotate(45deg);
+  border-top: 1px solid rgba(128, 128, 128, 0.446);
+  border-left: 1px solid rgba(128, 128, 128, 0.446);
+  z-index: 1000;
+  display: none;
+}
+
+.container-list-setting {
+  position: absolute;
+  z-index: 999;
+  top: 40px;
+  right: 0;
+  width: 150px;
+  background-color: white;
+  box-shadow: 0 0 2px 0px gray;
+  border-radius: 5px;
+  display: none;
+  overflow: hidden;
+}
+
+.container-view-profile {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid gray;
+  padding: 5px 10px;
+}
+
+.container-view-profile p {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.container-view-profile span {
+  font-size: 8px;
+  color: gray;
+}
+
+.container-setting-control {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.container-setting-control button {
+  border: none;
+  font-size: 12px;
+  background-color: transparent;
+  padding: 0;
+  color: gray;
+  font-weight: 500;
+  transition: color 0.2s;
+  padding: 8px;
+  width: 100%;
+  text-align: start;
+  cursor: pointer;
+}
+
+.container-setting-control button:hover {
+  color: white;
+  background-color: #b45a82;
 }
 
 .container-select-section-suppost {

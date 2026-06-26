@@ -1,7 +1,9 @@
 import "./HomePageHeader.css";
 import { Link } from "react-router";
-
+import { useState } from "react";
 export function HomePageHeader() {
+  const [isFocus, setIsFocus] = useState(false);
+
   return (
     <header className="container-header-main">
       <div className="container-header">
@@ -39,14 +41,51 @@ export function HomePageHeader() {
             EN
             <div className="tooltip">language</div>
           </button>
-          <div className="profile-user"></div>
+          <div className="container-profile">
+            <button
+              className="profile-user"
+              onFocus={() => setIsFocus(true)}
+              onBlur={() => setIsFocus(false)}
+            ></button>
+            <div
+              className="arror"
+              style={{
+                display: isFocus ? "initial" : "none",
+              }}
+            ></div>
+            <div
+              className="container-list-setting"
+              style={{
+                display: isFocus ? "initial" : "none",
+              }}
+            >
+              <div className="container-view-profile">
+                <p>user name</p>
+                <span>view profile</span>
+              </div>
+              <div className="container-setting-control">
+                <button>Lists</button>
+                <button>Favorites</button>
+                <button>reviews</button>
+                <button>light mood</button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div className="container-select-section-suppost">
-        <button>Movie</button>
-        <button>Series</button>
-        <button>Anime</button>
-        <button>Cartoon</button>
+        <Link to="/movies">
+          <button>Movie</button>
+        </Link>
+        <Link to="/series">
+          <button>Series</button>
+        </Link>
+        <Link to="/anime">
+          <button>Anime</button>
+        </Link>
+        <Link to="/cartoon">
+          <button>Cartoon</button>
+        </Link>
       </div>
     </header>
   );
