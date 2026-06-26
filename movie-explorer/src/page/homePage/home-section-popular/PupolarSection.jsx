@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link } from "react-router";
+import { DisplayMovie } from "./DisplayMovie";
 import "./PupolarSection.css";
 
 export function PupolarSection({ containmentState }) {
@@ -28,34 +29,13 @@ export function PupolarSection({ containmentState }) {
       </div>
       <div className="container-movie-flex">
         {dataMovie.slice(0, 8).map((movie) => {
-          const urlPoster = `https://image.tmdb.org/t/p/original${movie.poster_path}`;
-
-          return (
-            <div key={movie.id} className="container-movie">
-              <img src={urlPoster} />
-              <div className="container-movie-detail">
-                <p>{movie.title || movie.name}</p>
-                <span>{movie.release_date || movie.first_air_date}</span>
-              </div>
-            </div>
-          );
+          return <DisplayMovie key={movie.id} movie={movie} />;
         })}
       </div>
 
       <div className="container-movie-flex">
         {dataMovie.slice(10, 18).map((movie) => {
-          const urlPoster = `https://image.tmdb.org/t/p/original${movie.poster_path}`;
-
-          return (
-            <div key={movie.id} className="container-movie">
-              <img src={urlPoster} />
-
-              <div className="container-movie-detail">
-                <p>{movie.title || movie.name}</p>
-                <span>{movie.release_date || movie.first_air_date}</span>
-              </div>
-            </div>
-          );
+          return <DisplayMovie key={movie.id} movie={movie} />;
         })}
       </div>
     </div>

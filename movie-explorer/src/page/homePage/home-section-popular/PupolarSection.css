@@ -50,7 +50,7 @@
   display: flex;
   flex-direction: column;
   cursor: pointer;
-
+  position: relative;
   border-radius: 5px;
 }
 
@@ -78,4 +78,60 @@
   font-size: 12px;
   font-family: inter;
   margin-top: 3px;
+}
+
+.list-icon {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.852);
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  right: 5px;
+  top: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.list-icon:hover {
+  background-color: #a0d755;
+}
+
+.list-icon img {
+  width: 15px;
+  height: 15px;
+}
+
+.list-icon:focus {
+  .container-list {
+    display: initial;
+  }
+}
+
+.container-list {
+  position: absolute;
+  top: 35px;
+  right: -18%;
+  background-color: white;
+  z-index: 999;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.556);
+  font-size: 11px;
+  padding: 4px 0px;
+  border-radius: 5px;
+}
+
+.container-list div:nth-child(1) {
+  border-top: 1px solid rgb(213, 213, 213);
+}
+
+.container-list div {
+  border-bottom: 1px solid rgb(213, 213, 213);
+  padding: 5px 10px;
+}
+
+.container-list div:hover {
+  background-color: #b45a82;
+  color: white;
 }
