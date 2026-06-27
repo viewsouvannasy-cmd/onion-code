@@ -1,7 +1,8 @@
 import "./HeaderSection.css";
 import { Link } from "react-router";
 import { useState } from "react";
-export function HomePageHeader() {
+
+export function HeaderSection() {
   const [isFocus, setIsFocus] = useState(false);
 
   return (
@@ -56,7 +57,7 @@ export function HomePageHeader() {
             <div
               className="container-list-setting"
               style={{
-                display: isFocus ? "initial" : "none",
+                display: isFocus ? "flex" : "none",
               }}
             >
               <div className="container-view-profile">
@@ -64,7 +65,14 @@ export function HomePageHeader() {
                 <span>view profile</span>
               </div>
               <div className="container-setting-control">
-                <button>Lists</button>
+                <Link
+                  to="/mylist"
+                  onMouseDown={(e) => {
+                    e.preventDefault();
+                  }}
+                >
+                  Lists
+                </Link>
                 <button>Favorites</button>
                 <button>reviews</button>
                 <button>dark mode</button>

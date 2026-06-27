@@ -205,8 +205,9 @@
   background-color: white;
   box-shadow: 0 0 2px 0px gray;
   border-radius: 5px;
-  display: none;
   overflow: hidden;
+  pointer-events: auto;
+  flex-direction: column;
 }
 
 .container-view-profile {
@@ -232,7 +233,7 @@
   align-items: start;
 }
 
-.container-setting-control button {
+.container-setting-control > * {
   border: none;
   font-size: 12px;
   background-color: transparent;
@@ -244,9 +245,10 @@
   width: 100%;
   text-align: start;
   cursor: pointer;
+  text-decoration: none;
 }
 
-.container-setting-control button:hover {
+.container-setting-control > *:hover {
   color: white;
   background-color: #b45a82;
 }
