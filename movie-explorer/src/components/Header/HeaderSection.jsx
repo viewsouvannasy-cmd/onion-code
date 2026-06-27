@@ -1,4 +1,4 @@
-import "./HomePageHeader.css";
+import "./HeaderSection.css";
 import { Link } from "react-router";
 import { useState } from "react";
 export function HomePageHeader() {
@@ -67,7 +67,7 @@ export function HomePageHeader() {
                 <button>Lists</button>
                 <button>Favorites</button>
                 <button>reviews</button>
-                <button>light mood</button>
+                <button>dark mode</button>
               </div>
             </div>
           </div>

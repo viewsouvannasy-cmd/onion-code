@@ -1,4 +1,4 @@
-import { HomePageHeader } from "../homePage/home-page-header/HomePageHeader";
+import { HeaderSection } from "../../components/Header/HeaderSection";
 import { SectionSearch } from "../homePage/home-section-search/SectionSearch";
 import { PupolarSection } from "../homePage/home-section-popular/PupolarSection";
 import { TrendingSection } from "../homePage/home-trending/TrendingSection";
@@ -16,7 +16,7 @@ export function AnimeSection() {
     <>
       <link rel="icon" href="image/onion.png" />
       <title>Onion - Anime</title>
-      <HomePageHeader />
+      <HeaderSection />
       <SectionSearch containmentState={containmentState} />
       <PupolarSection containmentState={containmentState} />
       <TrendingSection containmentState={containmentState} />

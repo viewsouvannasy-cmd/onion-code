@@ -1,4 +1,4 @@
-import { HomePageHeader } from "./home-page-header/HomePageHeader";
+import { HeaderSection } from "../../components/Header/HeaderSection";
 import { SectionSearch } from "./home-section-search/SectionSearch";
 import { PupolarSection } from "./home-section-popular/PupolarSection";
 import { TrendingSection } from "./home-trending/TrendingSection";
@@ -14,7 +14,7 @@ export function HomePage() {
       <link rel="icon" href="image/onion.png" />
       <title>Onion</title>
 
-      <HomePageHeader />
+      <HeaderSection />
       <SectionSearch containmentState={containmentState} />
       <PupolarSection containmentState={containmentState} />
       <TrendingSection containmentState={containmentState} />
