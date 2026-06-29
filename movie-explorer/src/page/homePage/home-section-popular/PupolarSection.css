@@ -146,7 +146,7 @@
 
 .overlay-background {
   position: fixed;
-  background-color: rgba(64, 64, 64, 0.109);
+  background-color: rgba(0, 0, 0, 0.1);
   top: 0;
   bottom: 0;
   right: 0;

@@ -9,8 +9,13 @@ export function ItemsList({ list, isLists, setIsLists }) {
 
   return (
     <div className="list-items">
-      <div className="box-image">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Question_Mark.svg/3840px-Question_Mark.svg.png" />
+      <div
+        className="box-image"
+        style={{
+          backgroundImage: list.background,
+        }}
+      >
+        {list.listItems.image && <img src="" />}
       </div>
       <div className="list-detail">
         <h4>

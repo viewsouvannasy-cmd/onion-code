@@ -37,18 +37,29 @@ export function MyListSection({ isLists, setIsLists }) {
   function handleCreateList(e) {
     e.preventDefault();
 
+    const random = Math.floor(Math.random() * 2) + 1;
+    let color;
+
+    if (random === 1) {
+      color =
+        "linear-gradient(220deg,#ffffff 0%,#a0d755 50%,#76ad2b 80%,#4b8200 100%)";
+    } else {
+      color = "linear-gradient(210deg,#ffffff -40%,#b45a82 60%,#72143e 100% )";
+    }
+
     setIsLists([
       ...isLists,
       {
         listId: crypto.randomUUID(),
         name: inputNameList,
+        background: color,
         listItems: [],
       },
     ]);
 
+    setInputNameList("");
     handleClose();
   }
-
   return (
     <>
       <div className="container-my-list-main">
@@ -82,26 +93,24 @@ export function MyListSection({ isLists, setIsLists }) {
           display: isOpenPopup ? "flex" : "none",
         }}
       >
-        <form
-          onSubmit={handleCreateList}
-          className={`container-popup-create-list list ${isAnimation}`}
-        >
+        <div className={`container-popup-create-list list ${isAnimation}`}>
           <div>
             <h4>Add your new list</h4>
             <button onClick={handleClose}>
               <img src="/image/icon/close.png" />
             </button>
           </div>
-          <div>
+          <form onSubmit={handleCreateList}>
             <p>Create a new list</p>
             <input
               placeholder="My name list..."
               onChange={handleInputName}
+              value={inputNameList}
               required
             />
             <button type="submit">Create</button>
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
     </>
   );

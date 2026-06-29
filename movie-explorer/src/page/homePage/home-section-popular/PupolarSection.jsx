@@ -56,7 +56,9 @@ export function PupolarSection({ containmentState }) {
       <div
         className="overlay-background"
         style={{ display: isBackground ? "flex" : "none" }}
-      ></div>
+      >
+        <div className="container-add-list"></div>
+      </div>
     </>
   );
 }

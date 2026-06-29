@@ -114,7 +114,7 @@
 .box-image {
   width: 120px;
   height: 120px;
-  background-color: #989898;
+
   flex-shrink: 0;
 }
 
@@ -194,7 +194,7 @@
   height: 100vh;
   top: 0;
   z-index: 999;
-  background-color: rgba(64, 64, 64, 0.109);
+  background-color: rgba(0, 0, 0, 0.1);
   display: none;
   justify-content: center;
   padding: 0 20px;
@@ -223,17 +223,17 @@
   animation: moveDown 0.1s ease-in-out forwards;
 }
 
-.container-popup-create-list div:first-child {
+.container-popup-create-list div {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.container-popup-create-list div:first-child h4 {
+.container-popup-create-list div h4 {
   font-weight: 550;
 }
 
-.container-popup-create-list div:first-child button {
+.container-popup-create-list div button {
   border: none;
   display: flex;
   align-items: center;
@@ -243,22 +243,22 @@
   background-color: transparent;
 }
 
-.container-popup-create-list div:first-child img {
+.container-popup-create-list div img {
   width: 18px;
   height: 18px;
 }
 
-.container-popup-create-list div:last-child {
+.container-popup-create-list form {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.container-popup-create-list div:last-child span {
+.container-popup-create-list form span {
   font-family: inter;
 }
 
-.container-popup-create-list div:last-child button {
+.container-popup-create-list form button {
   border: none;
   background-color: #b45a82;
   padding: 10px;
@@ -269,7 +269,7 @@
   transition: background-color 0.2s;
 }
 
-.container-popup-create-list div:last-child button:hover {
+.container-popup-create-list form button:hover {
   background-color: #7f3e5b;
 }
 

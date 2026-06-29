@@ -3,6 +3,12 @@ export function DisplayMovie({ movie, setIsBackground }) {
   const [isFocus, setIsFocus] = useState(false);
   const urlPoster = `https://image.tmdb.org/t/p/original${movie.poster_path}`;
 
+  function handleOverlay() {
+    document.body.style.overflow = "hidden";
+    setIsBackground(true);
+    setIsFocus(false);
+  }
+
   return (
     <div className="container-movie">
       <img src={urlPoster} />
@@ -24,7 +30,14 @@ export function DisplayMovie({ movie, setIsBackground }) {
         }}
       >
         <div>
-          <button>Add to list</button>
+          <button
+            onClick={handleOverlay}
+            onMouseDown={(e) => {
+              e.preventDefault();
+            }}
+          >
+            Add to list
+          </button>
         </div>
         <div>
           <button>Favorite</button>
