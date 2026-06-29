@@ -1,3 +1,23 @@
+@keyframes moveUp {
+  0% {
+    transform: translateY(100px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveDown {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(100px);
+  }
+}
+
 .container-pupolar-section-main {
   width: 100%;
   margin-top: 25px;
@@ -120,28 +140,27 @@
   font-size: 11px;
   padding: 4px 0px;
   border-radius: 5px;
+  flex-direction: column;
+  width: 100px;
 }
 
 .container-list button {
   border: none;
   background-color: transparent;
+  cursor: pointer;
+  padding: 8px 10px;
+  border-bottom: 1px solid rgb(213, 213, 213);
+  width: 100%;
+  text-align: start;
 }
 
-.container-list div:nth-child(1) {
+.container-list button:nth-child(1) {
   border-top: 1px solid rgb(213, 213, 213);
 }
 
-.container-list div {
-  border-bottom: 1px solid rgb(213, 213, 213);
-  padding: 5px 10px;
-}
-
-.container-list div:hover {
-  background-color: #b45a82;
-}
-
-.container-list div:hover button {
+.container-list button:hover {
   color: white;
+  background-color: #b45a82;
 }
 
 .overlay-background {
@@ -151,4 +170,97 @@
   bottom: 0;
   right: 0;
   left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+  z-index: 999;
+}
+
+.container-add-list {
+  max-width: 500px;
+  width: 100%;
+  height: 260px;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 1px 5px 1px gray;
+  padding-top: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.container-add-list.open {
+  animation: moveUp 0.1s ease-in-out forwards;
+}
+
+.container-add-list.close {
+  animation: moveDown 0.1s ease-in-out forwards;
+}
+
+.title-create-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title-create-list button {
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.title-create-list button img {
+  width: 18px;
+}
+
+.box-list {
+  margin-top: 10px;
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+  height: 78%;
+}
+
+.list {
+  gap: 10px;
+  height: 80px;
+  display: flex;
+  width: 100%;
+  cursor: pointer;
+}
+
+.list div:first-child {
+  height: 80px;
+  width: 80px;
+
+  flex-shrink: 0;
+}
+
+.list div:last-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+
+.list div:last-child h4 {
+  font-weight: 550;
+}
+
+.list div:last-child p {
+  color: #989898;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.list div:last-child span {
+  color: #989898;
+  font-size: 12px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }

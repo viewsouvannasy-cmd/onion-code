@@ -1,9 +1,10 @@
 import { useState } from "react";
-export function DisplayMovie({ movie, setIsBackground }) {
+export function DisplayMovie({ movie, setIsBackground, setIsAnimation }) {
   const [isFocus, setIsFocus] = useState(false);
   const urlPoster = `https://image.tmdb.org/t/p/original${movie.poster_path}`;
 
   function handleOverlay() {
+    setIsAnimation("open");
     document.body.style.overflow = "hidden";
     setIsBackground(true);
     setIsFocus(false);
@@ -26,22 +27,19 @@ export function DisplayMovie({ movie, setIsBackground }) {
       <div
         className="container-list"
         style={{
-          display: isFocus === true ? "initial" : "none",
+          display: isFocus === true ? "flex" : "none",
         }}
       >
-        <div>
-          <button
-            onClick={handleOverlay}
-            onMouseDown={(e) => {
-              e.preventDefault();
-            }}
-          >
-            Add to list
-          </button>
-        </div>
-        <div>
-          <button>Favorite</button>
-        </div>
+        <button
+          onClick={handleOverlay}
+          onMouseDown={(e) => {
+            e.preventDefault();
+          }}
+        >
+          Add to list
+        </button>
+
+        <button>Favorite</button>
       </div>
     </div>
   );

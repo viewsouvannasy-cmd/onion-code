@@ -4,9 +4,22 @@ import { Link } from "react-router";
 import { DisplayMovie } from "./DisplayMovie";
 import "./PupolarSection.css";
 
-export function PupolarSection({ containmentState }) {
+export function PupolarSection({ containmentState, isLists }) {
   const [dataMovie, setDataMovie] = useState([]);
   const [isBackground, setIsBackground] = useState(false);
+  const [isAnimation, setIsAnimation] = useState("");
+
+  useEffect(() => {
+    if (isBackground) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isBackground]);
 
   useEffect(() => {
     const fetchMovie = async () => {
@@ -17,6 +30,13 @@ export function PupolarSection({ containmentState }) {
     };
     fetchMovie();
   }, [containmentState]);
+
+  function handleClose() {
+    setIsAnimation("close");
+    setTimeout(() => {
+      setIsBackground(false);
+    }, 100);
+  }
 
   return (
     <>
@@ -36,6 +56,7 @@ export function PupolarSection({ containmentState }) {
                 key={movie.id}
                 movie={movie}
                 setIsBackground={setIsBackground}
+                setIsAnimation={setIsAnimation}
               />
             );
           })}
@@ -48,6 +69,7 @@ export function PupolarSection({ containmentState }) {
                 key={movie.id}
                 movie={movie}
                 setIsBackground={setIsBackground}
+                setIsAnimation={setIsAnimation}
               />
             );
           })}
@@ -57,7 +79,35 @@ export function PupolarSection({ containmentState }) {
         className="overlay-background"
         style={{ display: isBackground ? "flex" : "none" }}
       >
-        <div className="container-add-list"></div>
+        <div className={`container-add-list ${isAnimation}`}>
+          <div className="title-create-list">
+            <p>Add to list</p>
+            <button onClick={handleClose}>
+              <img src="/image/icon/close.png" />
+            </button>
+          </div>
+          <div className="box-list">
+            {isLists.map((list) => {
+              return (
+                <div className="list">
+                  <div
+                    style={{
+                      backgroundImage: list.background,
+                    }}
+                  ></div>
+                  <div>
+                    <h4>{list.name}</h4>
+                    <p>
+                      {list.listItems.length}{" "}
+                      {list.listItems.length > 1 ? "items" : "item"}
+                    </p>
+                    <span></span>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
       </div>
     </>
   );
