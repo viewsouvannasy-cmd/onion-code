@@ -1,11 +1,21 @@
 import { Routes, Route } from "react-router";
 import { HomePage } from "./page/homePage/HomePage";
+import { useState, useEffect } from "react";
+
 import { MovieSection } from "./page/selectSection/MovieSection";
 import { AnimeSection } from "./page/selectSection/AnimeSection";
 import { SeriesSection } from "./page/selectSection/SeriesSection";
 import { CartoonSection } from "./page/selectSection/CartoonSection";
 import { MyListPage } from "./page/myListPage/MyListPage";
 function App() {
+  const [isLists, setIsLists] = useState(
+    JSON.parse(localStorage.getItem("myList")) || [],
+  );
+
+  useEffect(() => {
+    localStorage.setItem("myList", JSON.stringify(isLists));
+  }, [isLists]);
+
   return (
     <Routes>
       <Route index element={<HomePage />} />
@@ -13,7 +23,10 @@ function App() {
       <Route path="series" element={<SeriesSection />} />
       <Route path="anime" element={<AnimeSection />} />
       <Route path="cartoon" element={<CartoonSection />} />
-      <Route path="mylist" element={<MyListPage />} />
+      <Route
+        path="mylist"
+        element={<MyListPage isLists={isLists} setIsLists={setIsLists} />}
+      />
     </Routes>
   );
 }

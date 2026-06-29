@@ -122,6 +122,11 @@
   border-radius: 5px;
 }
 
+.container-list button {
+  border: none;
+  background-color: transparent;
+}
+
 .container-list div:nth-child(1) {
   border-top: 1px solid rgb(213, 213, 213);
 }
@@ -133,5 +138,17 @@
 
 .container-list div:hover {
   background-color: #b45a82;
+}
+
+.container-list div:hover button {
   color: white;
+}
+
+.overlay-background {
+  position: fixed;
+  background-color: rgba(64, 64, 64, 0.109);
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
 }

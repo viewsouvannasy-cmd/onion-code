@@ -80,6 +80,7 @@
   border-radius: 10px;
   gap: 10px;
   position: relative;
+  cursor: pointer;
 }
 
 .list-detail {
@@ -128,7 +129,7 @@
   height: 130px;
   width: 100%;
   box-shadow: 0 0 3px 0.5px gray;
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: center;
   color: #989898;

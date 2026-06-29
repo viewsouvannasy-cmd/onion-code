@@ -1,5 +1,5 @@
 import { useState } from "react";
-export function DisplayMovie({ movie }) {
+export function DisplayMovie({ movie, setIsBackground }) {
   const [isFocus, setIsFocus] = useState(false);
   const urlPoster = `https://image.tmdb.org/t/p/original${movie.poster_path}`;
 
@@ -24,10 +24,10 @@ export function DisplayMovie({ movie }) {
         }}
       >
         <div>
-          <p>Add to list</p>
+          <button>Add to list</button>
         </div>
         <div>
-          <p>Favorite</p>
+          <button>Favorite</button>
         </div>
       </div>
     </div>

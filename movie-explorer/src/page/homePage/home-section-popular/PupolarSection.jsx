@@ -6,6 +6,7 @@ import "./PupolarSection.css";
 
 export function PupolarSection({ containmentState }) {
   const [dataMovie, setDataMovie] = useState([]);
+  const [isBackground, setIsBackground] = useState(false);
 
   useEffect(() => {
     const fetchMovie = async () => {
@@ -18,26 +19,44 @@ export function PupolarSection({ containmentState }) {
   }, [containmentState]);
 
   return (
-    <div className="container-pupolar-section-main">
-      <div className="container-pupolar-section">
-        <div className="container-title">
-          <h3>Pupolar right now</h3>
-          <Link to="#" className="link-view-all">
-            view all
-          </Link>
+    <>
+      <div className="container-pupolar-section-main">
+        <div className="container-pupolar-section">
+          <div className="container-title">
+            <h3>Pupolar right now</h3>
+            <Link to="#" className="link-view-all">
+              view all
+            </Link>
+          </div>
+        </div>
+        <div className="container-movie-flex">
+          {dataMovie.slice(0, 8).map((movie) => {
+            return (
+              <DisplayMovie
+                key={movie.id}
+                movie={movie}
+                setIsBackground={setIsBackground}
+              />
+            );
+          })}
+        </div>
+
+        <div className="container-movie-flex">
+          {dataMovie.slice(10, 18).map((movie) => {
+            return (
+              <DisplayMovie
+                key={movie.id}
+                movie={movie}
+                setIsBackground={setIsBackground}
+              />
+            );
+          })}
         </div>
       </div>
-      <div className="container-movie-flex">
-        {dataMovie.slice(0, 8).map((movie) => {
-          return <DisplayMovie key={movie.id} movie={movie} />;
-        })}
-      </div>
-
-      <div className="container-movie-flex">
-        {dataMovie.slice(10, 18).map((movie) => {
-          return <DisplayMovie key={movie.id} movie={movie} />;
-        })}
-      </div>
-    </div>
+      <div
+        className="overlay-background"
+        style={{ display: isBackground ? "flex" : "none" }}
+      ></div>
+    </>
   );
 }
