@@ -187,6 +187,7 @@
   padding-top: 20px;
   padding-left: 30px;
   padding-right: 30px;
+  padding-bottom: 20px;
 }
 
 .container-add-list.open {
@@ -201,6 +202,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.title-create-list p {
+  font-size: 18px;
+  font-weight: 550;
 }
 
 .title-create-list button {
@@ -222,7 +228,59 @@
   display: flex;
   flex-direction: column;
   overflow: scroll;
-  height: 78%;
+  height: 83%;
+}
+
+.not-have-list {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 87%;
+}
+
+.not-found {
+  color: #989898;
+  font-size: 15px;
+}
+
+.not-have-list form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.not-have-list form span {
+  font-family: inter;
+  font-size: 14px;
+}
+
+.not-have-list form input {
+  border: none;
+  box-shadow: inset 0 0 2px 0.5px gray;
+  padding: 12px;
+  font-size: 12px;
+  border-radius: 50px;
+  font-family: inter;
+}
+
+.not-have-list form input::placeholder {
+  color: #989898;
+}
+
+.not-have-list form button {
+  border: none;
+  padding: 8px;
+  color: white;
+  background-color: #b45a82;
+  border-radius: 10px;
+  font-weight: 550;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.not-have-list form button:hover {
+  background-color: #7f3e5b;
 }
 
 .list {

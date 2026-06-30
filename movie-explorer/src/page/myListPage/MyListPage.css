@@ -211,7 +211,7 @@
   box-shadow: 0 1px 5px 0.8px gray;
   display: flex;
   flex-direction: column;
-  padding: 10px;
+  padding: 20px;
   justify-content: space-between;
 }
 
@@ -254,8 +254,9 @@
   gap: 10px;
 }
 
-.container-popup-create-list form span {
+.container-popup-create-list form p {
   font-family: inter;
+  font-size: 15px;
 }
 
 .container-popup-create-list form button {
@@ -264,7 +265,7 @@
   padding: 10px;
   border-radius: 10px;
   color: white;
-  font-weight: bold;
+  font-weight: 550;
   cursor: pointer;
   transition: background-color 0.2s;
 }
@@ -275,8 +276,14 @@
 
 .container-popup-create-list input {
   font-size: 15px;
-  padding: 10px;
+  padding: 12px;
+  font-family: inter;
   border-radius: 50px;
   border: none;
-  box-shadow: inset 0 0 3px 0px gray;
+  font-size: 12px;
+  box-shadow: inset 0 0 2px 0px gray;
+}
+
+.container-popup-create-list input::placeholder {
+  color: #989898;
 }

@@ -2,6 +2,8 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link } from "react-router";
 import { DisplayMovie } from "./DisplayMovie";
+import { DisplayListItems } from "./DisplayListItems";
+import { createList } from "../../../utils/createList";
 import "./PupolarSection.css";
 
 export function PupolarSection({ containmentState, isLists, setIsLists }) {
@@ -9,6 +11,7 @@ export function PupolarSection({ containmentState, isLists, setIsLists }) {
   const [isBackground, setIsBackground] = useState(false);
   const [isAnimation, setIsAnimation] = useState("");
   const [currentMovie, setCurrentMovie] = useState("");
+  const [inputNameList, setInputNameList] = useState("");
 
   useEffect(() => {
     if (isBackground) {
@@ -34,22 +37,22 @@ export function PupolarSection({ containmentState, isLists, setIsLists }) {
 
   function handleClose() {
     setIsAnimation("close");
+    setInputNameList("");
     setTimeout(() => {
       setIsBackground(false);
     }, 100);
   }
 
-  function addToList(list) {
-    const updateList = [...isLists];
+  function handleInputNameList(e) {
+    setInputNameList(e.target.value);
+  }
 
-    updateList.forEach((item) => {
-      if (item.listId === list.listId) {
-        item.listItems.push(currentMovie);
-      }
-    });
+  function handleCreateList(e) {
+    e.preventDefault();
 
-    setIsLists(updateList);
+    createList(isLists, setIsLists, inputNameList);
 
+    setInputNameList("");
     handleClose();
   }
 
@@ -103,37 +106,35 @@ export function PupolarSection({ containmentState, isLists, setIsLists }) {
               <img src="/image/icon/close.png" />
             </button>
           </div>
-          <div className="box-list">
-            {isLists.map((list) => {
-              return (
-                <div
-                  role="button"
-                  key={list.listId}
-                  onClick={() => {
-                    addToList(list);
-                  }}
-                  className="list"
-                >
-                  <div
-                    style={{
-                      backgroundImage: list.background,
-                    }}
-                  ></div>
-                  <div>
-                    <h4>{list.name}</h4>
-                    <p>
-                      {list.listItems.length}{" "}
-                      {list.listItems.length > 1 ? "items" : "item"}
-                    </p>
-                    <span>
-                      {list.listItems.map((item, index) => {
-                        return `${item.name}${index === list.listItems.length - 1 ? "" : ","} `;
-                      })}
-                    </span>
-                  </div>
-                </div>
-              );
-            })}
+          <div className={isLists.length === 0 ? "not-have-list" : "box-list"}>
+            {isLists.length === 0 ? (
+              <>
+                <p className="not-found">not found list.</p>
+                <form onSubmit={handleCreateList}>
+                  <span>Create your new list</span>
+                  <input
+                    placeholder="My list name..."
+                    value={inputNameList}
+                    onChange={handleInputNameList}
+                    required
+                  />
+                  <button type="submit">Create</button>
+                </form>
+              </>
+            ) : (
+              isLists.map((list) => {
+                return (
+                  <DisplayListItems
+                    key={list.listId}
+                    list={list}
+                    isLists={isLists}
+                    setIsLists={setIsLists}
+                    currentMovie={currentMovie}
+                    handleClose={handleClose}
+                  />
+                );
+              })
+            )}
           </div>
         </div>
       </div>
