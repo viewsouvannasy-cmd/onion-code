@@ -1,11 +1,22 @@
 import { useState } from "react";
-export function DisplayMovie({ movie, setIsBackground, setIsAnimation }) {
+export function DisplayMovie({
+  movie,
+  setIsBackground,
+  setIsAnimation,
+  setCurrentMovie,
+}) {
   const [isFocus, setIsFocus] = useState(false);
   const urlPoster = `https://image.tmdb.org/t/p/original${movie.poster_path}`;
 
   function handleOverlay() {
     setIsAnimation("open");
     document.body.style.overflow = "hidden";
+    setCurrentMovie({
+      id: movie.id,
+      url_poster: urlPoster,
+      name: movie.title || movie.name,
+      date_release: movie.release_date || movie.first_air_date,
+    });
     setIsBackground(true);
     setIsFocus(false);
   }

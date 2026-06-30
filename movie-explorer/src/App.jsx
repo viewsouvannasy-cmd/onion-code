@@ -18,11 +18,26 @@ function App() {
 
   return (
     <Routes>
-      <Route index element={<HomePage isLists={isLists} />} />
-      <Route path="movies" element={<MovieSection isLists={isLists} />} />
-      <Route path="series" element={<SeriesSection isLists={isLists} />} />
-      <Route path="anime" element={<AnimeSection isLists={isLists} />} />
-      <Route path="cartoon" element={<CartoonSection isLists={isLists} />} />
+      <Route
+        index
+        element={<HomePage isLists={isLists} setIsLists={setIsLists} />}
+      />
+      <Route
+        path="movies"
+        element={<MovieSection isLists={isLists} setIsLists={setIsLists} />}
+      />
+      <Route
+        path="series"
+        element={<SeriesSection isLists={isLists} setIsLists={setIsLists} />}
+      />
+      <Route
+        path="anime"
+        element={<AnimeSection isLists={isLists} setIsLists={setIsLists} />}
+      />
+      <Route
+        path="cartoon"
+        element={<CartoonSection isLists={isLists} setIsLists={setIsLists} />}
+      />
       <Route
         path="mylist"
         element={<MyListPage isLists={isLists} setIsLists={setIsLists} />}

@@ -4,7 +4,7 @@ import { PupolarSection } from "./home-section-popular/PupolarSection";
 import { TrendingSection } from "./home-trending/TrendingSection";
 import { AwardsSection } from "./home-awards-section/AwardsSection";
 import { FooterSection } from "./home-footer-section/FooterSection";
-export function HomePage({ isLists }) {
+export function HomePage({ isLists, setIsLists }) {
   const containmentState = {
     genrePath: "trending/all/week",
     detail: "",
@@ -16,7 +16,11 @@ export function HomePage({ isLists }) {
 
       <HeaderSection />
       <SectionSearch containmentState={containmentState} />
-      <PupolarSection containmentState={containmentState} isLists={isLists} />
+      <PupolarSection
+        containmentState={containmentState}
+        isLists={isLists}
+        setIsLists={setIsLists}
+      />
       <TrendingSection containmentState={containmentState} />
       <AwardsSection containmentState={containmentState} />
       <FooterSection />

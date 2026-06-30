@@ -42,7 +42,7 @@ export function MyListSection({ isLists, setIsLists }) {
 
     if (random === 1) {
       color =
-        "linear-gradient(220deg,#ffffff 0%,#a0d755 50%,#76ad2b 80%,#4b8200 100%)";
+        "linear-gradient(220deg,#ffffff -10%,#a0d755 50%,#76ad2b 80%,#4b8200 100%)";
     } else {
       color = "linear-gradient(210deg,#ffffff -40%,#b45a82 60%,#72143e 100% )";
     }
@@ -93,7 +93,7 @@ export function MyListSection({ isLists, setIsLists }) {
           display: isOpenPopup ? "flex" : "none",
         }}
       >
-        <div className={`container-popup-create-list list ${isAnimation}`}>
+        <div className={`container-popup-create-list ${isAnimation}`}>
           <div>
             <h4>Add your new list</h4>
             <button onClick={handleClose}>

@@ -5,7 +5,7 @@ import { PupolarSection } from "../homePage/home-section-popular/PupolarSection"
 import { TrendingSection } from "../homePage/home-trending/TrendingSection";
 import { AwardsSection } from "../homePage/home-awards-section/AwardsSection";
 import { FooterSection } from "../homePage/home-footer-section/FooterSection";
-export function CartoonSection() {
+export function CartoonSection({ isLists, setIsLists }) {
   const containmentState = {
     genrePath: "discover/movie",
     detail:
@@ -18,7 +18,11 @@ export function CartoonSection() {
       <title>Onion - Cartoon</title>
       <HeaderSection />
       <SectionSearch containmentState={containmentState} />
-      <PupolarSection containmentState={containmentState} />
+      <PupolarSection
+        containmentState={containmentState}
+        isLists={isLists}
+        setIsLists={setIsLists}
+      />
       <TrendingSection containmentState={containmentState} />
       <AwardsSection containmentState={containmentState} />
       <FooterSection />

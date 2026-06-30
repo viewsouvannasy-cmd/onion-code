@@ -4,10 +4,11 @@ import { Link } from "react-router";
 import { DisplayMovie } from "./DisplayMovie";
 import "./PupolarSection.css";
 
-export function PupolarSection({ containmentState, isLists }) {
+export function PupolarSection({ containmentState, isLists, setIsLists }) {
   const [dataMovie, setDataMovie] = useState([]);
   const [isBackground, setIsBackground] = useState(false);
   const [isAnimation, setIsAnimation] = useState("");
+  const [currentMovie, setCurrentMovie] = useState("");
 
   useEffect(() => {
     if (isBackground) {
@@ -38,6 +39,20 @@ export function PupolarSection({ containmentState, isLists }) {
     }, 100);
   }
 
+  function addToList(list) {
+    const updateList = [...isLists];
+
+    updateList.forEach((item) => {
+      if (item.listId === list.listId) {
+        item.listItems.push(currentMovie);
+      }
+    });
+
+    setIsLists(updateList);
+
+    handleClose();
+  }
+
   return (
     <>
       <div className="container-pupolar-section-main">
@@ -57,6 +72,7 @@ export function PupolarSection({ containmentState, isLists }) {
                 movie={movie}
                 setIsBackground={setIsBackground}
                 setIsAnimation={setIsAnimation}
+                setCurrentMovie={setCurrentMovie}
               />
             );
           })}
@@ -70,6 +86,7 @@ export function PupolarSection({ containmentState, isLists }) {
                 movie={movie}
                 setIsBackground={setIsBackground}
                 setIsAnimation={setIsAnimation}
+                setCurrentMovie={setCurrentMovie}
               />
             );
           })}
@@ -89,7 +106,14 @@ export function PupolarSection({ containmentState, isLists }) {
           <div className="box-list">
             {isLists.map((list) => {
               return (
-                <div className="list">
+                <div
+                  role="button"
+                  key={list.listId}
+                  onClick={() => {
+                    addToList(list);
+                  }}
+                  className="list"
+                >
                   <div
                     style={{
                       backgroundImage: list.background,
@@ -101,7 +125,11 @@ export function PupolarSection({ containmentState, isLists }) {
                       {list.listItems.length}{" "}
                       {list.listItems.length > 1 ? "items" : "item"}
                     </p>
-                    <span></span>
+                    <span>
+                      {list.listItems.map((item, index) => {
+                        return `${item.name}${index === list.listItems.length - 1 ? "" : ","} `;
+                      })}
+                    </span>
                   </div>
                 </div>
               );

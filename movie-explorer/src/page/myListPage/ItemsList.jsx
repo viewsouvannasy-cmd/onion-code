@@ -14,9 +14,7 @@ export function ItemsList({ list, isLists, setIsLists }) {
         style={{
           backgroundImage: list.background,
         }}
-      >
-        {list.listItems.image && <img src="" />}
-      </div>
+      ></div>
       <div className="list-detail">
         <h4>
           {list.name}{" "}
@@ -26,8 +24,8 @@ export function ItemsList({ list, isLists, setIsLists }) {
           </span>
         </h4>
         <p>
-          {list.listItems.map((item) => {
-            return `${item.name} `;
+          {list.listItems.map((item, index) => {
+            return `${item.name}${index === list.listItems.length - 1 ? "" : ","} `;
           })}
         </p>
       </div>
