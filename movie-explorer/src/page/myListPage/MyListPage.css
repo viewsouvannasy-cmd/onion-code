@@ -201,6 +201,8 @@
   align-items: center;
 }
 
+/* this is style for popup -----------------*/
+
 .container-popup-create-list {
   background-color: white;
   width: 100%;
@@ -286,4 +288,106 @@
 
 .container-popup-create-list input::placeholder {
   color: #989898;
+}
+
+/* this style for item in list ----------------*/
+
+.container-item-in-list {
+  width: 100%;
+  max-width: 600px;
+  display: none;
+  flex-direction: column;
+  margin-top: 20px;
+  gap: 15px;
+}
+
+.item-movie {
+  width: 100%;
+  height: 150px;
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.488);
+  border-radius: 15px;
+  background-color: #e7e7e7;
+  position: relative;
+  cursor: pointer;
+}
+
+.item-movie img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 20%;
+  border-radius: 15px;
+}
+
+.background-layer-item-movie {
+  background-color: rgba(0, 0, 0, 0.43);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  border-radius: 15px;
+}
+
+.container-add-date {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 5px 10px;
+  width: 60%;
+}
+
+.container-add-date h2 {
+  color: white;
+  font-weight: 560;
+  font-size: 18px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.container-add-date p {
+  color: white;
+  font-family: inter;
+  font-weight: 450;
+  margin-bottom: -1px;
+}
+
+.container-add-date p span {
+  font-style: italic;
+  font-weight: 300;
+  font-size: smaller;
+}
+
+.btn-option-delete {
+  display: flex;
+  border: none;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+
+.btn-option-delete img {
+  width: 23px;
+  height: 23px;
+  object-fit: cover;
+}
+
+@media (max-width: 470px) {
+  .item-movie {
+    height: 130px;
+  }
+
+  .container-add-date h2 {
+    font-size: 15px;
+  }
+
+  .container-add-date p {
+    font-size: 13px;
+  }
+
+  .container-add-date p span {
+    font-size: 12px;
+  }
 }

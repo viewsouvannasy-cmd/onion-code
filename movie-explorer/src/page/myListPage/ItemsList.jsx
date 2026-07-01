@@ -1,14 +1,18 @@
 import { useState } from "react";
 
-export function ItemsList({ list, isLists, setIsLists }) {
+export function ItemsList({ list, isLists, setIsLists, setCurrentList }) {
   const [isFocus, setIsFocus] = useState(false);
 
   function handleDeleteList() {
     setIsLists(isLists.filter((item) => item.listId !== list.listId));
   }
 
+  function handleCurrentList() {
+    setCurrentList(list.listItems);
+  }
+
   return (
-    <div className="list-items">
+    <div className="list-items" role="button" onClick={handleCurrentList}>
       <div
         className="box-image"
         style={{

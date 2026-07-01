@@ -1,4 +1,5 @@
 import { useState } from "react";
+import dayjs from "dayjs";
 export function DisplayMovie({
   movie,
   setIsBackground,
@@ -9,14 +10,20 @@ export function DisplayMovie({
   const urlPoster = `https://image.tmdb.org/t/p/original${movie.poster_path}`;
 
   function handleOverlay() {
+    const urlBackdrop = `https://image.tmdb.org/t/p/original${movie.backdrop_path}`;
+    const currentDate = dayjs().format("D/M/YYYY");
+
     setIsAnimation("open");
     document.body.style.overflow = "hidden";
     setCurrentMovie({
       id: movie.id,
+      add_date: currentDate,
       url_poster: urlPoster,
+      url_backdrop: urlBackdrop,
       name: movie.title || movie.name,
       date_release: movie.release_date || movie.first_air_date,
     });
+
     setIsBackground(true);
     setIsFocus(false);
   }

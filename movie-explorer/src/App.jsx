@@ -7,6 +7,7 @@ import { AnimeSection } from "./page/selectSection/AnimeSection";
 import { SeriesSection } from "./page/selectSection/SeriesSection";
 import { CartoonSection } from "./page/selectSection/CartoonSection";
 import { MyListPage } from "./page/myListPage/MyListPage";
+
 function App() {
   const [isLists, setIsLists] = useState(
     JSON.parse(localStorage.getItem("myList")) || [],

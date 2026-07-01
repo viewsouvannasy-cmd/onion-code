@@ -10,6 +10,7 @@ export function MovieSection({ isLists, setIsLists }) {
   const containmentState = {
     genrePath: "discover/movie",
     detail: "",
+    media_type: "movie",
   };
 
   return (

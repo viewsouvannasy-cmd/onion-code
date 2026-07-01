@@ -10,6 +10,7 @@ export function CartoonSection({ isLists, setIsLists }) {
     genrePath: "discover/movie",
     detail:
       "&with_genres=16&with_origin_country=US&language=en-US&sort_by=popularity.desc",
+    media_type: "movie",
   };
   return (
     <>
