@@ -11,7 +11,7 @@ export function HeaderSection() {
         <div className="header-left-section">
           <Link className="link-home-page" to="/">
             <div className="box-logo">
-              <img src="image/onion.png" />
+              <img src="/image/onion.png" />
               <p>
                 <span>n</span>ion
               </p>
@@ -35,7 +35,7 @@ export function HeaderSection() {
 
         <div className="header-right-section">
           <button className="review-btn">
-            <img src="image/icon/star.png" />
+            <img src="/image/icon/star.png" />
             <div className="tooltip-review">review</div>
           </button>
           <button className="change-language-btn">

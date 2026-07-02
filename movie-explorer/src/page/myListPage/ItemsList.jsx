@@ -1,14 +1,16 @@
 import { useState } from "react";
+import { useNavigate } from "react-router";
 
-export function ItemsList({ list, isLists, setIsLists, setCurrentList }) {
+export function ItemsList({ list, isLists, setIsLists }) {
   const [isFocus, setIsFocus] = useState(false);
+  const navigate = useNavigate();
 
   function handleDeleteList() {
     setIsLists(isLists.filter((item) => item.listId !== list.listId));
   }
 
   function handleCurrentList() {
-    setCurrentList(list.listItems);
+    navigate(`${list.listId}`);
   }
 
   return (

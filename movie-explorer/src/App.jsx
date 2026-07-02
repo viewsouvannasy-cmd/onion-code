@@ -7,6 +7,7 @@ import { AnimeSection } from "./page/selectSection/AnimeSection";
 import { SeriesSection } from "./page/selectSection/SeriesSection";
 import { CartoonSection } from "./page/selectSection/CartoonSection";
 import { MyListPage } from "./page/myListPage/MyListPage";
+import { ItemInListPage } from "./page/itemInListPage/ItemInListPage";
 
 function App() {
   const [isLists, setIsLists] = useState(
@@ -42,6 +43,10 @@ function App() {
       <Route
         path="mylist"
         element={<MyListPage isLists={isLists} setIsLists={setIsLists} />}
+      />
+      <Route
+        path="mylist/:listId"
+        element={<ItemInListPage isLists={isLists} setIsLists={setIsLists} />}
       />
     </Routes>
   );

@@ -1,8 +1,7 @@
-export function DisplayItemInList({ item }) {
-  console.log(item);
+export function DisplayItem({ item }) {
   return (
     <div className="item-movie">
-      <img src={item.url_backdrop} />
+      <img className="background-image" src={item.url_backdrop} />
       <div className="background-layer-item-movie"></div>
       <div className="container-add-date">
         <p>

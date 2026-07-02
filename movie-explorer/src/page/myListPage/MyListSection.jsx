@@ -1,13 +1,11 @@
 import { useState, useEffect } from "react";
 import { ItemsList } from "./ItemsList";
-import { DisplayItemInList } from "./DisplayIteminList";
 import { createList } from "../../utils/createList";
 
 export function MyListSection({ isLists, setIsLists }) {
   const [inputNameList, setInputNameList] = useState("");
   const [isOpenPopup, setIsOpenPopup] = useState(false);
   const [isAnimation, setIsAnimation] = useState("");
-  const [currentList, setCurrentList] = useState([]);
 
   useEffect(() => {
     if (isOpenPopup) {
@@ -57,10 +55,7 @@ export function MyListSection({ isLists, setIsLists }) {
             create list
           </button>
         </div>
-        <div
-          className="container-list-items"
-          style={{ display: currentList.length > 0 ? "none" : "flex" }}
-        >
+        <div className="container-list-items">
           {isLists.length === 0 ? (
             <div className="no-have-list">No Have List</div>
           ) : (
@@ -71,19 +66,10 @@ export function MyListSection({ isLists, setIsLists }) {
                   list={list}
                   isLists={isLists}
                   setIsLists={setIsLists}
-                  setCurrentList={setCurrentList}
                 />
               );
             })
           )}
-        </div>
-        <div
-          className="container-item-in-list"
-          style={{ display: currentList.length > 0 ? "flex" : "none" }}
-        >
-          {currentList.map((item) => {
-            return <DisplayItemInList key={item.id} item={item} />;
-          })}
         </div>
       </div>
       <div
