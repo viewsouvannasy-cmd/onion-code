@@ -5,7 +5,8 @@ export function ItemsList({ list, isLists, setIsLists }) {
   const [isFocus, setIsFocus] = useState(false);
   const navigate = useNavigate();
 
-  function handleDeleteList() {
+  function handleDeleteList(e) {
+    e.stopPropagation();
     setIsLists(isLists.filter((item) => item.listId !== list.listId));
   }
 
@@ -37,6 +38,9 @@ export function ItemsList({ list, isLists, setIsLists }) {
       </div>
       <button
         className="edit-list-btn"
+        onClick={(e) => {
+          e.stopPropagation();
+        }}
         onFocus={() => setIsFocus(true)}
         onBlur={() => setIsFocus(false)}
       >

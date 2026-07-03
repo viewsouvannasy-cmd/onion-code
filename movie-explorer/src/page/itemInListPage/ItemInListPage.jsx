@@ -6,7 +6,7 @@ import { DisplayItem } from "./DisplayItem";
 
 import "./ItemInListPage.css";
 
-export function ItemInListPage({ isLists }) {
+export function ItemInListPage({ isLists, setIsLists }) {
   const { listId } = useParams();
 
   const [currentList, setCurrentList] = useState([]);
@@ -67,7 +67,15 @@ export function ItemInListPage({ isLists }) {
         </div>
         <div className={`container-item-in-list-${selectShape}`}>
           {currentList.map((item) => {
-            return <DisplayItem key={item.id} item={item} />;
+            return (
+              <DisplayItem
+                key={item.id}
+                item={item}
+                isLists={isLists}
+                setIsLists={setIsLists}
+                listId={listId}
+              />
+            );
           })}
         </div>
       </div>
