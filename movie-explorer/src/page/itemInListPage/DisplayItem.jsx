@@ -1,11 +1,19 @@
 import { useState } from "react";
 
-export function DisplayItem({ item, isLists, setIsLists, listId }) {
+export function DisplayItem({
+  item,
+  isLists,
+  setIsLists,
+  listId,
+  setIsOpenDelete,
+  setIsAnimation,
+  isAnimation,
+  isOpenDelete,
+  setDeleteList,
+  deleteList,
+}) {
   const [isFocus, setIsFocus] = useState(false);
-
-  function handleLinkToMovie() {
-    console.log("yes");
-  }
+  const [isCheck, setIsCheck] = useState(false);
 
   function handleDeleteItem() {
     const newList = [...isLists];
@@ -18,24 +26,60 @@ export function DisplayItem({ item, isLists, setIsLists, listId }) {
     setIsLists(newList);
   }
 
+  function handleSelectDelete() {
+    setIsOpenDelete(true);
+    setIsAnimation("open");
+    setIsFocus(false);
+  }
+
+  function handleLinkMovie() {
+    console.log("link");
+  }
+
+  function handleCheckDelete() {
+    if (!isCheck) {
+      setDeleteList([...deleteList, item.id]);
+      setIsCheck(true);
+    } else {
+      setDeleteList(deleteList.filter((i) => i !== item.id));
+      setIsCheck(false);
+    }
+  }
+
   return (
     <div className="item-movie">
-      <img className="background-image" src={item.url_backdrop} />
-      <div className="background-layer-item-movie"></div>
+      <img
+        className={
+          isOpenDelete ? "background-image-not-hover" : "background-image"
+        }
+        src={item.url_backdrop}
+      />
+      <div className={`background-layer-item-movie ${isAnimation}`}></div>
       <div
-        className="container-add-date"
+        className={`container-add-date ${isAnimation}`}
         role="button"
-        onClick={handleLinkToMovie}
+        onClick={isOpenDelete ? handleCheckDelete : handleLinkMovie}
       >
-        <p>
+        <p
+          style={{
+            color: isOpenDelete ? "rgba(255, 255, 255, 0.5)" : "white",
+          }}
+        >
           Add date <span>{item.add_date}</span>
         </p>
-        <h2>{item.name}</h2>
+        <h2
+          style={{
+            color: isOpenDelete ? "rgba(255, 255, 255, 0.5)" : "white",
+          }}
+        >
+          {item.name}
+        </h2>
       </div>
       <button
-        className="btn-option-delete"
+        className={`btn-option-delete ${isAnimation}`}
         onFocus={() => setIsFocus(true)}
         onBlur={() => setIsFocus(false)}
+        disabled={isOpenDelete}
       >
         <img src="/image/icon/dots-white.png" />
       </button>
@@ -49,7 +93,25 @@ export function DisplayItem({ item, isLists, setIsLists, listId }) {
         >
           delete
         </button>
-        <button>select delete</button>
+        <button
+          onClick={handleSelectDelete}
+          onMouseDown={(e) => e.preventDefault()}
+        >
+          select delete
+        </button>
+      </div>
+
+      <div
+        className={`checkbox-delete ${isAnimation}`}
+        style={{
+          display: isOpenDelete ? "flex" : "none",
+          backgroundColor: isCheck ? "#b45a82" : "rgba(255, 255, 255, 0.75)",
+        }}
+      >
+        <img
+          style={{ display: isCheck ? "flex" : "none" }}
+          src="/image/icon/tick.png"
+        />
       </div>
     </div>
   );

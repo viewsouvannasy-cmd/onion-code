@@ -12,6 +12,9 @@ export function ItemInListPage({ isLists, setIsLists }) {
   const [currentList, setCurrentList] = useState([]);
   const [selectShape, setSelectShape] = useState("line");
   const [nameList, setNameList] = useState("");
+  const [isOpenDelete, setIsOpenDelete] = useState(false);
+  const [isAnimation, setIsAnimation] = useState("");
+  const [deleteList, setDeleteList] = useState([]);
 
   function handleSelectShape(shape) {
     setSelectShape(shape);
@@ -29,6 +32,32 @@ export function ItemInListPage({ isLists, setIsLists }) {
       setCurrentList([]);
     }
   }, [isLists, listId]);
+
+  function handleCancel() {
+    setIsAnimation("close");
+    setTimeout(() => {
+      setIsOpenDelete(false);
+    }, 550);
+  }
+
+  function handleComfirmDelete() {
+    const currentList = [...isLists];
+    currentList.forEach((list) => {
+      if (list.listId === listId) {
+        let newListItem = [];
+        for (let i = 0; i < list.listItems.length; i++) {
+          if (list.listItems[i].id !== deleteList[i]) {
+            newListItem.push(list.listItems[i]);
+          } else {
+            continue;
+          }
+        }
+        list.listItems = newListItem;
+      }
+    });
+    setIsLists(currentList);
+    handleCancel();
+  }
 
   return (
     <>
@@ -74,9 +103,30 @@ export function ItemInListPage({ isLists, setIsLists }) {
                 isLists={isLists}
                 setIsLists={setIsLists}
                 listId={listId}
+                setIsOpenDelete={setIsOpenDelete}
+                setIsAnimation={setIsAnimation}
+                isAnimation={isAnimation}
+                isOpenDelete={isOpenDelete}
+                setDeleteList={setDeleteList}
+                deleteList={deleteList}
               />
             );
           })}
+        </div>
+      </div>
+      <div
+        className="container-select-delete-popup"
+        style={{ display: isOpenDelete ? "flex" : "none" }}
+      >
+        <div className={`container-btn ${isAnimation}`}>
+          <p>{deleteList.length}</p>
+          <button onClick={handleComfirmDelete}>
+            <img src="/image/icon/tick.png" />
+          </button>
+          <button onClick={handleCancel}>cancel</button>
+          <button>
+            <img src="/image/icon/more.png" />
+          </button>
         </div>
       </div>
     </>
