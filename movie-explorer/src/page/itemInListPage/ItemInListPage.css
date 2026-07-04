@@ -163,26 +163,6 @@
   height: 105%;
 }
 
-@keyframes increaseBackground {
-  0% {
-    background-color: rgba(0, 0, 0, 0.43);
-  }
-
-  100% {
-    background-color: rgba(0, 0, 0, 0.7);
-  }
-}
-
-@keyframes decreaseBackground {
-  0% {
-    background-color: rgba(0, 0, 0, 0.7);
-  }
-
-  100% {
-    background-color: rgba(0, 0, 0, 0.43);
-  }
-}
-
 .background-layer-item-movie {
   background-color: rgba(0, 0, 0, 0.43);
   width: 100%;
@@ -210,26 +190,6 @@
   display: flex;
   flex-direction: column;
   justify-content: end;
-}
-
-@keyframes downOpacity {
-  0% {
-    color: white;
-  }
-
-  100% {
-    color: rgba(255, 255, 255, 0.5);
-  }
-}
-
-@keyframes addOpacity {
-  0% {
-    color: rgba(255, 255, 255, 0.5);
-  }
-
-  100% {
-    color: white;
-  }
 }
 
 .container-add-date h2 {
@@ -267,26 +227,6 @@
   font-style: italic;
   font-weight: 300;
   font-size: smaller;
-}
-
-@keyframes opacityToZero {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
-}
-
-@keyframes opacityToOne {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
 }
 
 .btn-option-delete {
@@ -342,30 +282,6 @@
 .container-popup-delete button:hover {
   background-color: #b45a82;
   color: white;
-}
-
-@keyframes moveUpDelete {
-  0% {
-    transform: translateY(110px);
-    width: 50px;
-  }
-
-  100% {
-    transform: translateY(0);
-    width: 210px;
-  }
-}
-
-@keyframes moveDownDelete {
-  0% {
-    transform: translateY(0px);
-    width: 210px;
-  }
-
-  100% {
-    transform: translateY(110px);
-    width: 50px;
-  }
 }
 
 .container-select-delete-popup {

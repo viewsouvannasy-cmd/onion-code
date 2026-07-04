@@ -9,6 +9,8 @@ import { CartoonSection } from "./page/selectSection/CartoonSection";
 import { MyListPage } from "./page/myListPage/MyListPage";
 import { ItemInListPage } from "./page/itemInListPage/ItemInListPage";
 
+import "./styles/animation.css";
+
 function App() {
   const [isLists, setIsLists] = useState(
     JSON.parse(localStorage.getItem("myList")) || [],
