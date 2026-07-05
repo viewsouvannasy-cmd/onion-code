@@ -402,6 +402,32 @@
   display: none;
 }
 
+.container-option-delete {
+  position: absolute;
+  top: -20px;
+  margin-left: 120px;
+  padding: 4px 0;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 1px 5px 1px rgba(127, 127, 127, 0.362);
+}
+
+.container-option-delete button {
+  border: none;
+  font-size: 14px;
+  padding: 4px 10px;
+  border-bottom: 1px solid gray;
+  border-top: 1px solid gray;
+  background-color: white;
+  cursor: pointer;
+  font-family: inter;
+}
+
+.container-option-delete button:hover {
+  background-color: #b45a82;
+  color: white;
+}
+
 @media (max-width: 470px) {
   .item-movie {
     height: 130px;

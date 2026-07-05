@@ -15,6 +15,7 @@ export function ItemInListPage({ isLists, setIsLists }) {
   const [isOpenDelete, setIsOpenDelete] = useState(false);
   const [isAnimation, setIsAnimation] = useState("");
   const [deleteList, setDeleteList] = useState([]);
+  const [focusOptionDelete, setFocusOptionDelete] = useState(false);
 
   function handleSelectShape(shape) {
     setSelectShape(shape);
@@ -44,21 +45,33 @@ export function ItemInListPage({ isLists, setIsLists }) {
     const currentList = [...isLists];
     currentList.forEach((list) => {
       if (list.listId === listId) {
-        let newListItem = [];
-        for (let i = 0; i < list.listItems.length; i++) {
-          if (list.listItems[i].id !== deleteList[i]) {
-            newListItem.push(list.listItems[i]);
-          } else {
-            continue;
-          }
-        }
+        const newListItem = list.listItems.filter(
+          (item) => !deleteList.includes(item.id),
+        );
         list.listItems = newListItem;
       }
     });
     setIsLists(currentList);
+    setDeleteList([]);
     handleCancel();
   }
 
+  function handleOptionDelete() {
+    setFocusOptionDelete(focusOptionDelete ? false : true);
+  }
+
+  function handleDeleteAll() {
+    const currentList = [...isLists];
+    currentList.forEach((list) => {
+      if (list.listId === listId) {
+        list.listItems = [];
+      }
+    });
+
+    setIsLists(currentList);
+    handleOptionDelete();
+    handleCancel();
+  }
   return (
     <>
       <HeaderSection />
@@ -124,9 +137,15 @@ export function ItemInListPage({ isLists, setIsLists }) {
             <img src="/image/icon/tick.png" />
           </button>
           <button onClick={handleCancel}>cancel</button>
-          <button>
+          <button onClick={handleOptionDelete}>
             <img src="/image/icon/more.png" />
           </button>
+        </div>
+        <div
+          className="container-option-delete"
+          style={{ display: focusOptionDelete ? "flex" : "none" }}
+        >
+          <button onClick={handleDeleteAll}>delete All</button>
         </div>
       </div>
     </>
