@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { Link } from "react-router";
+import { useNavigate } from "react-router";
 import { DisplayMovie } from "./DisplayMovie";
 import { DisplayListItems } from "./DisplayListItems";
 import { createList } from "../../../utils/createList";
@@ -12,6 +12,7 @@ export function PupolarSection({ containmentState, isLists, setIsLists }) {
   const [isAnimation, setIsAnimation] = useState("");
   const [currentMovie, setCurrentMovie] = useState("");
   const [inputNameList, setInputNameList] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (isBackground) {
@@ -56,15 +57,23 @@ export function PupolarSection({ containmentState, isLists, setIsLists }) {
     handleClose();
   }
 
+  function handleViewAllLink() {
+    navigate(`/${containmentState.name}/view-all/1`, {
+      state: {
+        genrePath: containmentState.genrePath,
+        detail: containmentState.detail,
+        media_type: containmentState.media_type,
+      },
+    });
+  }
+
   return (
     <>
       <div className="container-pupolar-section-main">
         <div className="container-pupolar-section">
           <div className="container-title">
             <h3>Pupolar right now</h3>
-            <Link to="#" className="link-view-all">
-              view all
-            </Link>
+            <button onClick={handleViewAllLink}>view all</button>
           </div>
         </div>
         <div className="container-movie-flex">

@@ -8,6 +8,7 @@ import { SeriesSection } from "./page/selectSection/SeriesSection";
 import { CartoonSection } from "./page/selectSection/CartoonSection";
 import { MyListPage } from "./page/myListPage/MyListPage";
 import { ItemInListPage } from "./page/itemInListPage/ItemInListPage";
+import { ViewAllMoviePage } from "./page/viewAllMoviePage/ViewAllMoviePage";
 
 import "./styles/animation.css";
 
@@ -42,6 +43,7 @@ function App() {
         path="cartoon"
         element={<CartoonSection isLists={isLists} setIsLists={setIsLists} />}
       />
+      <Route path=":section/view-all/:page" element={<ViewAllMoviePage />} />
       <Route
         path="mylist"
         element={<MyListPage isLists={isLists} setIsLists={setIsLists} />}

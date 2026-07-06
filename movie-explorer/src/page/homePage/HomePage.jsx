@@ -6,8 +6,10 @@ import { AwardsSection } from "./home-awards-section/AwardsSection";
 import { FooterSection } from "./home-footer-section/FooterSection";
 export function HomePage({ isLists, setIsLists }) {
   const containmentState = {
+    name: "home",
     genrePath: "trending/all/week",
     detail: "",
+    media_type: "tv",
   };
   return (
     <>

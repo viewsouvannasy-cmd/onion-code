@@ -6,6 +6,7 @@ import { AwardsSection } from "../homePage/home-awards-section/AwardsSection";
 import { FooterSection } from "../homePage/home-footer-section/FooterSection";
 export function AnimeSection({ isLists, setIsLists }) {
   const containmentState = {
+    name: "anime",
     genrePath: "discover/tv",
     detail:
       "&with_genres=16&with_origin_country=JP&ilanguage=en-US&sort_by=popularity.desc",

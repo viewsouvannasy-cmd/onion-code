@@ -7,6 +7,7 @@ import { AwardsSection } from "../homePage/home-awards-section/AwardsSection";
 import { FooterSection } from "../homePage/home-footer-section/FooterSection";
 export function CartoonSection({ isLists, setIsLists }) {
   const containmentState = {
+    name: "cartoon",
     genrePath: "discover/movie",
     detail:
       "&with_genres=16&with_origin_country=US&language=en-US&sort_by=popularity.desc",

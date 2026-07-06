@@ -8,6 +8,7 @@ import { FooterSection } from "../homePage/home-footer-section/FooterSection";
 
 export function MovieSection({ isLists, setIsLists }) {
   const containmentState = {
+    name: "movie",
     genrePath: "discover/movie",
     detail: "",
     media_type: "movie",

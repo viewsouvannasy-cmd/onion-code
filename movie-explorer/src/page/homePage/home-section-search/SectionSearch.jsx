@@ -23,7 +23,7 @@ export function SectionSearch({ containmentState }) {
       setBackdrop(imageArray[randomBackdrop]);
 
       response = await axios.get(
-        `https://api.themoviedb.org/3/genre/movie/list?api_key=cb8d9a517e7387524c6cd936f1752bc0`,
+        `https://api.themoviedb.org/3/genre/${containmentState.media_type}/list?api_key=cb8d9a517e7387524c6cd936f1752bc0`,
       );
 
       setGenresMovie(response.data.genres.slice(0, 15));

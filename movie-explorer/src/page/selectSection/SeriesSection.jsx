@@ -7,6 +7,7 @@ import { AwardsSection } from "../homePage/home-awards-section/AwardsSection";
 import { FooterSection } from "../homePage/home-footer-section/FooterSection";
 export function SeriesSection({ isLists, setIsLists }) {
   const containmentState = {
+    name: "serier",
     genrePath: "discover/tv",
     detail: "",
     media_type: "tv",
