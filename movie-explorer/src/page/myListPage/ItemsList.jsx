@@ -1,7 +1,15 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
 
-export function ItemsList({ list, isLists, setIsLists }) {
+export function ItemsList({
+  list,
+  isLists,
+  setIsLists,
+  setIsOpenPopup,
+  setIsAnimation,
+  setIsRename,
+  setCurrentListId,
+}) {
   const [isFocus, setIsFocus] = useState(false);
   const navigate = useNavigate();
 
@@ -12,6 +20,15 @@ export function ItemsList({ list, isLists, setIsLists }) {
 
   function handleCurrentList() {
     navigate(`${list.listId}`);
+  }
+
+  function handleRenameList(e) {
+    e.stopPropagation();
+    setIsRename(true);
+    setIsOpenPopup(true);
+    setIsAnimation("open");
+    setIsFocus(false);
+    setCurrentListId(list.listId);
   }
 
   return (
@@ -52,7 +69,14 @@ export function ItemsList({ list, isLists, setIsLists }) {
           display: isFocus ? "flex" : "none",
         }}
       >
-        <button>Rename</button>
+        <button
+          onClick={handleRenameList}
+          onMouseDown={(e) => {
+            e.preventDefault();
+          }}
+        >
+          Rename
+        </button>
         <button
           onClick={handleDeleteList}
           onMouseDown={(e) => {

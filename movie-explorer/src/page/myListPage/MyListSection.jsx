@@ -6,6 +6,8 @@ export function MyListSection({ isLists, setIsLists }) {
   const [inputNameList, setInputNameList] = useState("");
   const [isOpenPopup, setIsOpenPopup] = useState(false);
   const [isAnimation, setIsAnimation] = useState("");
+  const [isRename, setIsRename] = useState(false);
+  const [currentListId, setCurrentListId] = useState("");
 
   useEffect(() => {
     if (isOpenPopup) {
@@ -27,8 +29,10 @@ export function MyListSection({ isLists, setIsLists }) {
   function handleClose() {
     setIsAnimation("close");
     setInputNameList("");
+
     setTimeout(() => {
       setIsOpenPopup(false);
+      setIsRename(false);
     }, 100);
   }
 
@@ -42,6 +46,19 @@ export function MyListSection({ isLists, setIsLists }) {
     createList(isLists, setIsLists, inputNameList);
 
     setInputNameList("");
+    handleClose();
+  }
+
+  function handleSaveRename(e) {
+    e.preventDefault();
+    const newList = [...isLists];
+    newList.forEach((list) => {
+      if (list.listId === currentListId) {
+        list.name = inputNameList;
+      }
+    });
+
+    setIsLists(newList);
     handleClose();
   }
 
@@ -66,6 +83,10 @@ export function MyListSection({ isLists, setIsLists }) {
                   list={list}
                   isLists={isLists}
                   setIsLists={setIsLists}
+                  setIsOpenPopup={setIsOpenPopup}
+                  setIsAnimation={setIsAnimation}
+                  setIsRename={setIsRename}
+                  setCurrentListId={setCurrentListId}
                 />
               );
             })
@@ -80,20 +101,20 @@ export function MyListSection({ isLists, setIsLists }) {
       >
         <div className={`container-popup-create-list ${isAnimation}`}>
           <div>
-            <h4>Add your new list</h4>
+            <h4>{isRename ? "Make new name" : "Add your new list"}</h4>
             <button onClick={handleClose}>
               <img src="/image/icon/close.png" />
             </button>
           </div>
-          <form onSubmit={handleCreateList}>
-            <p>Create a new list</p>
+          <form onSubmit={isRename ? handleSaveRename : handleCreateList}>
+            <p>{isRename ? "Change to new list name" : "Cerate a new list"}</p>
             <input
-              placeholder="My name list..."
+              placeholder={isRename ? "My new name list..." : "My name list..."}
               onChange={handleInputName}
               value={inputNameList}
               required
             />
-            <button type="submit">Create</button>
+            <button type="submit">{isRename ? "Save" : "Create"}</button>
           </form>
         </div>
       </div>
