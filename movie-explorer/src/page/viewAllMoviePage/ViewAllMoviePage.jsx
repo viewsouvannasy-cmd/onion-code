@@ -3,9 +3,10 @@ import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { HeaderSection } from "../../components/Header/HeaderSection";
 import { DisplayMovieViewAll } from "./DisplayMovieViewAll";
+import { PopupAddToList } from "../../components/popup-add-to-List/PopupAddToList";
 import "./viewAllMoviePage.css";
 
-export function ViewAllMoviePage() {
+export function ViewAllMoviePage({ isLists, setIsLists }) {
   const navigate = useNavigate();
   const location = useLocation();
   const { detail, genrePath, media_type } = location.state;
@@ -18,6 +19,25 @@ export function ViewAllMoviePage() {
   const [totalPage, setTotalPage] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   const [inputPage, setInputPage] = useState(page);
+
+  // these state it use to control popup
+  const [isBackground, setIsBackground] = useState(false);
+  const [isAnimation, setIsAnimation] = useState("");
+
+  // these use to store info of movie
+  const [currentMovie, setCurrentMovie] = useState({});
+
+  useEffect(() => {
+    if (isBackground) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isBackground]);
 
   useEffect(() => {
     const loadDataMovie = async () => {
@@ -90,6 +110,9 @@ export function ViewAllMoviePage() {
                 key={crypto.randomUUID()}
                 movie={movie}
                 isLoading={isLoading}
+                setIsBackground={setIsBackground}
+                setIsAnimation={setIsAnimation}
+                setCurrentMovie={setCurrentMovie}
               />
             );
           })}
@@ -113,6 +136,15 @@ export function ViewAllMoviePage() {
           </button>
         </div>
       </div>
+      <PopupAddToList
+        isBackground={isBackground}
+        setIsBackground={setIsBackground}
+        isAnimation={isAnimation}
+        setIsAnimation={setIsAnimation}
+        isLists={isLists}
+        setIsLists={setIsLists}
+        currentMovie={currentMovie}
+      />
     </>
   );
 }

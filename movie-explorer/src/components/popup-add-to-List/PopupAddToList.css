@@ -1,0 +1,164 @@
+.overlay-background {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.1);
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+  z-index: 999;
+}
+
+.container-add-list {
+  max-width: 500px;
+  width: 100%;
+  height: 260px;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 1px 5px 1px gray;
+  padding: 20px;
+}
+
+.container-add-list.open {
+  animation: moveUp 0.1s ease-in-out forwards;
+}
+
+.container-add-list.close {
+  animation: moveDown 0.1s ease-in-out forwards;
+}
+
+.title-create-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title-create-list p {
+  font-size: 18px;
+  font-weight: 550;
+}
+
+.title-create-list button {
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.title-create-list button img {
+  width: 18px;
+}
+
+.box-list {
+  margin-top: 10px;
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+  height: 83%;
+}
+
+.not-have-list {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 87%;
+}
+
+.not-found {
+  color: #989898;
+  font-size: 15px;
+}
+
+.not-have-list form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.not-have-list form span {
+  font-family: inter;
+  font-size: 14px;
+}
+
+.not-have-list form input {
+  border: none;
+  box-shadow: inset 0 0 2px 0.5px gray;
+  padding: 12px;
+  font-size: 12px;
+  border-radius: 50px;
+  font-family: inter;
+}
+
+.not-have-list form input::placeholder {
+  color: #989898;
+}
+
+.not-have-list form button {
+  border: none;
+  padding: 8px;
+  color: white;
+  background-color: #b45a82;
+  border-radius: 10px;
+  font-weight: 550;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.not-have-list form button:hover {
+  background-color: #7f3e5b;
+}
+
+.list {
+  gap: 10px;
+  height: 80px;
+  display: flex;
+  width: 100%;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  background-color: white;
+}
+
+.list div:first-child {
+  height: 80px;
+  width: 80px;
+  flex-shrink: 0;
+}
+
+.list div:first-child img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.list div:last-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+
+.list div:last-child h4 {
+  font-weight: 550;
+}
+
+.list div:last-child p {
+  color: #989898;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.list div:last-child span {
+  color: #989898;
+  font-size: 12px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}

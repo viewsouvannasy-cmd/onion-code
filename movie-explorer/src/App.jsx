@@ -43,7 +43,10 @@ function App() {
         path="cartoon"
         element={<CartoonSection isLists={isLists} setIsLists={setIsLists} />}
       />
-      <Route path=":section/view-all/:page" element={<ViewAllMoviePage />} />
+      <Route
+        path=":section/view-all/:page"
+        element={<ViewAllMoviePage isLists={isLists} setIsLists={setIsLists} />}
+      />
       <Route
         path="mylist"
         element={<MyListPage isLists={isLists} setIsLists={setIsLists} />}

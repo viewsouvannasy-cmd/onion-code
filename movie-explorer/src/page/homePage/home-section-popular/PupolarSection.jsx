@@ -2,16 +2,14 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import { DisplayMovie } from "./DisplayMovie";
-import { DisplayListItems } from "./DisplayListItems";
-import { createList } from "../../../utils/createList";
+import { PopupAddToList } from "../../../components/popup-add-to-List/PopupAddToList";
 import "./PupolarSection.css";
 
 export function PupolarSection({ containmentState, isLists, setIsLists }) {
   const [dataMovie, setDataMovie] = useState([]);
   const [isBackground, setIsBackground] = useState(false);
   const [isAnimation, setIsAnimation] = useState("");
-  const [currentMovie, setCurrentMovie] = useState("");
-  const [inputNameList, setInputNameList] = useState("");
+  const [currentMovie, setCurrentMovie] = useState({});
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -35,27 +33,6 @@ export function PupolarSection({ containmentState, isLists, setIsLists }) {
     };
     fetchMovie();
   }, [containmentState]);
-
-  function handleClose() {
-    setIsAnimation("close");
-    setInputNameList("");
-    setTimeout(() => {
-      setIsBackground(false);
-    }, 100);
-  }
-
-  function handleInputNameList(e) {
-    setInputNameList(e.target.value);
-  }
-
-  function handleCreateList(e) {
-    e.preventDefault();
-
-    createList(isLists, setIsLists, inputNameList);
-
-    setInputNameList("");
-    handleClose();
-  }
 
   function handleViewAllLink() {
     navigate(`/${containmentState.name}/view-all/1`, {
@@ -104,49 +81,15 @@ export function PupolarSection({ containmentState, isLists, setIsLists }) {
           })}
         </div>
       </div>
-      <div
-        className="overlay-background"
-        style={{ display: isBackground ? "flex" : "none" }}
-      >
-        <div className={`container-add-list ${isAnimation}`}>
-          <div className="title-create-list">
-            <p>Add to list</p>
-            <button onClick={handleClose}>
-              <img src="/image/icon/close.png" />
-            </button>
-          </div>
-          <div className={isLists.length === 0 ? "not-have-list" : "box-list"}>
-            {isLists.length === 0 ? (
-              <>
-                <p className="not-found">not found list.</p>
-                <form onSubmit={handleCreateList}>
-                  <span>Create your new list</span>
-                  <input
-                    placeholder="My list name..."
-                    value={inputNameList}
-                    onChange={handleInputNameList}
-                    required
-                  />
-                  <button type="submit">Create</button>
-                </form>
-              </>
-            ) : (
-              isLists.map((list) => {
-                return (
-                  <DisplayListItems
-                    key={list.listId}
-                    list={list}
-                    isLists={isLists}
-                    setIsLists={setIsLists}
-                    currentMovie={currentMovie}
-                    handleClose={handleClose}
-                  />
-                );
-              })
-            )}
-          </div>
-        </div>
-      </div>
+      <PopupAddToList
+        isBackground={isBackground}
+        setIsBackground={setIsBackground}
+        isAnimation={isAnimation}
+        setIsAnimation={setIsAnimation}
+        isLists={isLists}
+        setIsLists={setIsLists}
+        currentMovie={currentMovie}
+      />
     </>
   );
 }
