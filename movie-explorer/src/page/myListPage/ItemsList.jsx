@@ -40,13 +40,14 @@ export function ItemsList({
         }}
       ></div>
       <div className="list-detail">
-        <h4>
-          {list.name}{" "}
+        <div>
+          <h4>{list.name} </h4>
           <span>
             {list.listItems.length}{" "}
             {list.listItems.length > 1 ? "items" : "item"}
           </span>
-        </h4>
+        </div>
+
         <p>
           {list.listItems.map((item, index) => {
             return `${item.name}${index === list.listItems.length - 1 ? "" : ","} `;

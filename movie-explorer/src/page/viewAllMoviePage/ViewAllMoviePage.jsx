@@ -4,6 +4,7 @@ import axios from "axios";
 import { HeaderSection } from "../../components/Header/HeaderSection";
 import { DisplayMovieViewAll } from "./DisplayMovieViewAll";
 import { PopupAddToList } from "../../components/popup-add-to-List/PopupAddToList";
+import { FooterSection } from "../../components/Footer/FooterSection";
 import "./viewAllMoviePage.css";
 
 export function ViewAllMoviePage({ isLists, setIsLists }) {
@@ -84,7 +85,6 @@ export function ViewAllMoviePage({ isLists, setIsLists }) {
       if (inputPage !== "" && /^\d+$/.test(inputPage)) {
         inputPageRef.current.blur(false);
         handleToPage(inputPage);
-        setInputPage(inputPage);
         return;
       }
     }
@@ -145,6 +145,7 @@ export function ViewAllMoviePage({ isLists, setIsLists }) {
         setIsLists={setIsLists}
         currentMovie={currentMovie}
       />
+      <FooterSection />
     </>
   );
 }

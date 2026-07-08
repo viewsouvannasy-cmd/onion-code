@@ -1,21 +1,11 @@
-@keyframes loop {
-  0% {
-    transform: translateX(-700px);
-  }
-
-  100% {
-    transform: translateX(100vw);
-  }
-}
-
 .container-footer {
-  margin-top: 150px;
-  background-color: #333333;
   width: 100%;
   display: flex;
-  padding: 0 30px;
+  padding: 30px;
   flex-direction: column;
   align-items: center;
+  border-top: 1px solid black;
+  margin-top: 50px;
 }
 
 .header-footer {
@@ -23,8 +13,8 @@
   max-width: 1150px;
   display: flex;
   justify-content: space-between;
-
   padding: 10px 0;
+  align-items: center;
 }
 
 .left-head-footer {
@@ -33,13 +23,12 @@
 }
 
 .left-head-footer h3 {
-  color: white;
-  font-weight: 500;
+  color: black;
 }
 
 .left-head-footer span {
   font-family: inter;
-  color: #a0d755;
+  color: #b45a82;
   font-size: small;
   text-decoration: underline;
   cursor: pointer;
@@ -63,7 +52,7 @@
 }
 
 .right-head-footer div span {
-  color: white;
+  color: #545454;
   font-size: small;
   cursor: pointer;
 }
@@ -72,24 +61,11 @@
   text-decoration: underline;
 }
 
-.container-video-movie {
-  background-color: #333333;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  overflow: hidden;
-  display: flex;
-}
-
-.container-video-movie h1 {
-  font-size: 100px;
-  letter-spacing: 100px;
-  animation: loop 8s linear infinite;
-}
-
 @media (max-width: 520px) {
   .header-footer {
     flex-direction: column;
     gap: 10px;
+    align-items: start;
   }
 
   .header-footer p {

@@ -84,13 +84,14 @@ export function ItemInListPage({ isLists, setIsLists }) {
             </Link>
           </div>
           <div>
-            <h2>
-              {nameList}
+            <div>
+              <h2>{nameList}</h2>
               <span>
                 {" "}
                 {currentList.length} {currentList.length > 0 ? "items" : "item"}
               </span>
-            </h2>
+            </div>
+
             <div className="box-select">
               <button
                 className={`line-btn ${selectShape === "line" ? "select" : "not-select"}`}

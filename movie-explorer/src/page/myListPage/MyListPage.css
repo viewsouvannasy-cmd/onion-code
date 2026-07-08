@@ -69,15 +69,21 @@
   justify-content: end;
 }
 
-.list-detail h4 {
+.list-detail div {
+  display: flex;
+  align-items: end;
+}
+
+.list-detail div h4 {
   font-weight: 550;
 }
 
-.list-detail h4 span {
+.list-detail div span {
   color: #989898;
   font-weight: normal;
   font-size: 11px;
-  margin-left: 5px;
+  margin-left: 4px;
+  margin-bottom: 2px;
 }
 
 .list-items p {
@@ -269,4 +275,15 @@
 
 .container-popup-create-list input::placeholder {
   color: #989898;
+}
+
+@media (max-width: 500px) {
+  .list-detail div {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .list-detail div span {
+    margin: 0;
+  }
 }

@@ -4,7 +4,8 @@ import { SectionSearch } from "../homePage/home-section-search/SectionSearch";
 import { PupolarSection } from "../homePage/home-section-popular/PupolarSection";
 import { TrendingSection } from "../homePage/home-trending/TrendingSection";
 import { AwardsSection } from "../homePage/home-awards-section/AwardsSection";
-import { FooterSection } from "../homePage/home-footer-section/FooterSection";
+import { FooterSection } from "../../components/Footer/FooterSection";
+
 export function SeriesSection({ isLists, setIsLists }) {
   const containmentState = {
     name: "serier",

@@ -3,7 +3,8 @@ import { SectionSearch } from "./home-section-search/SectionSearch";
 import { PupolarSection } from "./home-section-popular/PupolarSection";
 import { TrendingSection } from "./home-trending/TrendingSection";
 import { AwardsSection } from "./home-awards-section/AwardsSection";
-import { FooterSection } from "./home-footer-section/FooterSection";
+import { FooterSection } from "../../components/Footer/FooterSection";
+
 export function HomePage({ isLists, setIsLists }) {
   const containmentState = {
     name: "home",
