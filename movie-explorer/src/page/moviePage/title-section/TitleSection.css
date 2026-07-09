@@ -1,0 +1,155 @@
+.container-title-section {
+  width: 100%;
+  height: 380px;
+  background-color: rgb(201, 201, 201);
+  overflow: hidden;
+  position: relative;
+  border-top: 2px solid rgb(137, 137, 137);
+  display: flex;
+  justify-content: center;
+}
+
+.backdrop-image-cover-title-section {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 20%;
+}
+
+.background-title-section {
+  background: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top: 0;
+
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.container-info-movie-main {
+  top: 0;
+  position: absolute;
+  z-index: 330;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  padding-bottom: 25px;
+  display: flex;
+  align-items: end;
+}
+
+.container-info-movie {
+  width: 100%;
+  height: 100%;
+  max-width: 1150px;
+  margin: 0 auto;
+  display: flex;
+  gap: 20px;
+  align-items: end;
+}
+
+.container-info-movie > div:first-child {
+  width: 165px;
+  height: 250px;
+  background-color: rgb(191, 191, 191);
+  border-radius: 7px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px 1px black;
+  flex-shrink: 0;
+}
+
+.container-info-movie > div:first-child img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.container-info-movie > div:last-child {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  align-items: start;
+}
+
+.container-info-movie > div:last-child h1 {
+  color: white;
+  font-size: 40px;
+  margin-top: -12px;
+  line-height: 45px;
+}
+
+.container-info-movie > div:last-child span {
+  color: #bdbdbd;
+  font-family: inter;
+  font-size: 14px;
+  margin-top: -5px;
+}
+
+.box-genre-of-movie {
+  display: flex;
+  gap: 10px;
+}
+
+.box-genre-of-movie button {
+  font-family: inter;
+  border: none;
+  gap: 10px;
+  font-size: 13px;
+  padding: 5px 14px;
+  border-radius: 50px;
+  background-color: transparent;
+  border: 1px solid #bdbdbd;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.box-genre-of-movie button:hover {
+  background-color: #b45a82;
+}
+
+.container-info-movie > div:last-child p {
+  color: #f4f4f4;
+  max-width: 500px;
+  width: 100%;
+  font-size: 0.9rem;
+  font-family: inter;
+  line-height: 20px;
+}
+
+.box-btn-my-list-and-play-trailer {
+  display: flex;
+  gap: 10px;
+}
+
+.box-btn-my-list-and-play-trailer button {
+  border: none;
+  background-color: #b45a82;
+  color: white;
+  font-weight: 500;
+  padding: 9px 13px;
+  border-radius: 10px;
+  transition: background-color 0.2s;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.box-btn-my-list-and-play-trailer button:hover {
+  background-color: #813e5c;
+}
+
+@media (max-width: 630px) {
+  .container-info-movie > div:first-child {
+    width: 130px;
+    height: 200px;
+  }
+
+  .container-info-movie > div:last-child h1 {
+    font-size: 35px;
+  }
+
+  .box-btn-my-list-and-play-trailer button {
+    font-size: 14px;
+    padding: 8px 10px;
+  }
+}

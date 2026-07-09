@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router";
 import { getInfoMovie } from "../../../utils/getInfoMovie";
 
 export function DisplayMovie({
@@ -7,6 +8,7 @@ export function DisplayMovie({
   setIsAnimation,
   setCurrentMovie,
 }) {
+  const navigate = useNavigate();
   const [isFocus, setIsFocus] = useState(false);
   const urlPoster = `https://image.tmdb.org/t/p/original${movie.poster_path}`;
 
@@ -19,8 +21,12 @@ export function DisplayMovie({
     setIsFocus(false);
   }
 
+  function handleToOwnPage() {
+    navigate(`${movie.media_type}/${movie.id}`, { state: movie });
+  }
+
   return (
-    <div className="container-movie">
+    <div className="container-movie" role="button" onClick={handleToOwnPage}>
       <img src={urlPoster} />
       <div className="container-movie-detail">
         <p>{movie.title || movie.name}</p>
