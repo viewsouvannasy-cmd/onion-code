@@ -1,0 +1,99 @@
+.container-cast-and-crew-section-main {
+  margin-top: 100px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  width: 100%;
+  flex-direction: column;
+}
+
+.container-cast-and-crew-header {
+  width: 100%;
+  max-width: 1150px;
+  display: flex;
+  align-items: end;
+}
+
+.container-cast-and-crew-header h3 {
+  font-weight: 550;
+  flex-shrink: 0;
+}
+
+.container-cast-and-crew-header div {
+  width: 100%;
+  height: 1.5px;
+  margin-left: 10px;
+  background-color: #989898;
+  margin-bottom: 7px;
+}
+
+.container-show-cast-and-crew {
+  width: 100%;
+  display: flex;
+  margin-top: 15px;
+  max-width: 1150px;
+  gap: 20px;
+  overflow-x: scroll;
+  scrollbar-width: none;
+  align-items: start;
+}
+
+.cast-and-crew-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.cast-and-crew-item > div:first-child {
+  width: 120px;
+  height: 120px;
+  background-color: rgb(199, 199, 199);
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.cast-and-crew-item > div:first-child img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.cast-and-crew-item > div:last-child {
+  display: flex;
+  flex-direction: column;
+}
+
+.cast-and-crew-item > div:last-of-type p {
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.cast-and-crew-item > div:last-child span {
+  font-family: inter;
+  font-size: 0.8rem;
+  color: #636363;
+}
+
+.container-show-cast-and-crew > button {
+  border: none;
+  font-weight: 550;
+  background-color: transparent;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  align-self: center;
+}
+
+.container-show-cast-and-crew > button:hover {
+  color: #989898;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.container-show-cast-and-crew > button img {
+  width: 15px;
+  transform: rotate(180deg);
+  margin-left: 5px;
+}

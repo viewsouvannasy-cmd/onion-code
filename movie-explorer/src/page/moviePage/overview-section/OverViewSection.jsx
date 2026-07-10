@@ -2,7 +2,6 @@ import "./OverViewSection.css";
 
 export function OverViewSection({ detailMovie }) {
   const studio = detailMovie?.production_companies?.[0]?.name || "";
-  console.log(detailMovie);
   const director =
     detailMovie?.credits?.crew?.find((proson) => proson.job === "Director") ||
     "";

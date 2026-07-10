@@ -4,6 +4,7 @@ import axios from "axios";
 import { HeaderSection } from "../../components/Header/HeaderSection";
 import { TitleSection } from "./title-section/TitleSection";
 import { OverViewSection } from "./overview-section/OverViewSection";
+import { CastAndCrewSection } from "./castcrew-section/CastAndCrewSection";
 
 export function MoviePage() {
   const location = useLocation();
@@ -27,6 +28,7 @@ export function MoviePage() {
       <HeaderSection />
       <TitleSection detailMovie={detailMovie} />
       <OverViewSection detailMovie={detailMovie} />
+      <CastAndCrewSection detailMovie={detailMovie} />
     </>
   );
 }
