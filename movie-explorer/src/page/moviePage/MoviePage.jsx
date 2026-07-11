@@ -5,6 +5,7 @@ import { HeaderSection } from "../../components/Header/HeaderSection";
 import { TitleSection } from "./title-section/TitleSection";
 import { OverViewSection } from "./overview-section/OverViewSection";
 import { CastAndCrewSection } from "./castcrew-section/CastAndCrewSection";
+import { DetailSection } from "./detail-section/DetailSection";
 
 export function MoviePage() {
   const location = useLocation();
@@ -23,12 +24,19 @@ export function MoviePage() {
     getDetail();
   }, [currentMovie]);
 
+  useEffect(() => {
+    document.title = `Onion - ${currentMovie.name || currentMovie.title}`;
+  }, [currentMovie]);
+
+  console.log(currentMovie);
+
   return (
     <>
       <HeaderSection />
       <TitleSection detailMovie={detailMovie} />
       <OverViewSection detailMovie={detailMovie} />
       <CastAndCrewSection detailMovie={detailMovie} />
+      <DetailSection detailMovie={detailMovie} currentMovie={currentMovie} />
     </>
   );
 }

@@ -1,3 +1,4 @@
+import { formatMoney } from "../../../utils/formatMoney";
 import "./OverViewSection.css";
 
 export function OverViewSection({ detailMovie }) {
@@ -5,8 +6,9 @@ export function OverViewSection({ detailMovie }) {
   const director =
     detailMovie?.credits?.crew?.find((proson) => proson.job === "Director") ||
     "";
-  const language = detailMovie?.spoken_languages?.[0].name || "";
-  const budget = detailMovie?.budget || "";
+  const language = detailMovie?.spoken_languages?.[0]?.name || "";
+
+  const budget = formatMoney(detailMovie?.budget || "");
 
   return (
     <div className="container-over-view-section-main">

@@ -1,5 +1,5 @@
 .container-over-view-section-main {
-  margin-top: 25px;
+  margin-top: 35px;
   display: flex;
   align-items: center;
   padding: 0 20px;
@@ -30,7 +30,7 @@
   display: flex;
   width: 100%;
   max-width: 1150px;
-  margin-top: 10px;
+  margin-top: 20px;
   gap: 30px;
 }
 

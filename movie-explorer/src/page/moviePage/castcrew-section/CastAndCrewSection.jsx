@@ -1,7 +1,6 @@
 import "./CastAndCrewSection.css";
 
 export function CastAndCrewSection({ detailMovie }) {
-  console.log(detailMovie);
   const dataCast = detailMovie?.credits?.cast?.slice(0, 10) || [];
   return (
     <div className="container-cast-and-crew-section-main">
