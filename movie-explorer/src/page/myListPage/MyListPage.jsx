@@ -4,7 +4,6 @@ import "./MyListPage.css";
 export function MyListPage({ isLists, setIsLists }) {
   return (
     <>
-      <link rel="icon" href="image/onion.png" />
       <title>Onion - my list</title>
 
       <HeaderSection />

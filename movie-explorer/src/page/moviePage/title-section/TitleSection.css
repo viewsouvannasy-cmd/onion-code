@@ -79,7 +79,7 @@
 }
 
 .container-info-movie > div:last-child span {
-  color: #bdbdbd;
+  color: #e5e5e5;
   font-family: inter;
   font-size: 14px;
   margin-top: -5px;
@@ -145,11 +145,19 @@
   }
 
   .container-info-movie > div:last-child h1 {
-    font-size: 35px;
+    font-size: 32px;
   }
 
   .box-btn-my-list-and-play-trailer button {
     font-size: 14px;
     padding: 8px 10px;
+  }
+
+  .box-genre-of-movie button {
+    font-size: 12px;
+  }
+
+  .box-genre-of-movie button:nth-child(3) {
+    display: none;
   }
 }

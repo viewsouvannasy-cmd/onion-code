@@ -1,0 +1,184 @@
+.container-detail-section-main {
+  margin-top: 100px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  width: 100%;
+  flex-direction: column;
+}
+
+.container-detail-header {
+  width: 100%;
+  max-width: 1150px;
+  display: flex;
+  align-items: end;
+}
+
+.container-detail-header h3 {
+  font-weight: 550;
+  flex-shrink: 0;
+}
+
+.container-detail-header div {
+  width: 100%;
+  height: 1.5px;
+  margin-left: 10px;
+  background-color: #989898;
+  margin-bottom: 7px;
+}
+
+.container-detail-box {
+  width: 100%;
+  max-width: 1150px;
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1px;
+  background-color: #eeee;
+  padding: 1px;
+}
+
+.container-detail-box div {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(250, 250, 250);
+  outline: 1px solid black;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3px;
+}
+
+.container-detail-box div span {
+  font-size: 10px;
+  font-family: inter;
+}
+
+/* ---- this is stype for DetailForTv ------  */
+
+.container-detail-header-season {
+  margin-top: 20px;
+  width: 100%;
+  max-width: 1150px;
+  display: flex;
+  align-items: end;
+  gap: 10px;
+}
+
+.container-detail-header-season button {
+  border: none;
+  padding: 8px 12px;
+  border-radius: 50px;
+  font-family: inter;
+  background-color: #eeee;
+  cursor: pointer;
+  border: 1px solid #989898;
+  display: flex;
+  font-size: 0.7rem;
+
+  transition:
+    background-color 0.2s,
+    color 0.2s;
+}
+
+.container-detail-header-season button:hover {
+  background-color: #b45a82;
+  color: white;
+}
+
+.container-episode {
+  margin-top: 20px;
+  width: 100%;
+  max-width: 1150px;
+  display: flex;
+  flex-direction: column;
+}
+
+.episode-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  border-bottom: 1px solid #989898;
+}
+
+.episode-item > div:nth-child(1) {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 60%;
+}
+
+.episode-item > div:nth-child(1) > p {
+  font-size: 27px;
+  font-family: inter;
+  font-weight: 500;
+  color: #636363;
+}
+
+.episode-item > div:nth-child(1) .box-image-episode {
+  width: 130px;
+  height: 80px;
+  background-color: #dedede;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 0 2px 0 black;
+  flex-shrink: 0;
+}
+
+.episode-item > div:nth-child(1) .box-image-episode img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.episode-item > div:nth-child(1) .box-title-of-episode {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.episode-item > div:nth-child(1) .box-title-of-episode p {
+  font-weight: 500;
+}
+
+.episode-item > div:nth-child(1) .box-title-of-episode span {
+  font-family: inter;
+  font-size: 13.5px;
+  color: #636363;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.episode-item > div:nth-child(2) {
+  font-family: inter;
+  color: #636363;
+  font-size: 14px;
+}
+
+@media (max-width: 1090px) {
+  .episode-item > div:nth-child(1) {
+    width: 90%;
+  }
+}
+
+@media (max-width: 950px) {
+  .container-detail-box {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 780px) {
+  .container-detail-box {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 690px) {
+  .container-detail-box {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

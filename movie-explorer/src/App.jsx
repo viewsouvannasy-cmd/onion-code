@@ -57,6 +57,7 @@ function App() {
         element={<ItemInListPage isLists={isLists} setIsLists={setIsLists} />}
       />
       <Route path="movie/:movieId" element={<MoviePage />} />
+      <Route path="tv/:movieId" element={<MoviePage />} />
     </Routes>
   );
 }

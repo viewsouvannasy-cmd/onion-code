@@ -1,13 +1,19 @@
 import { calculateTime } from "../../../utils/calculateTime";
 import "./TitleSection.css";
 
-export function TitleSection({ detailMovie }) {
+export function TitleSection({ detailMovie, currentMovie }) {
   const urlPoster = `https://image.tmdb.org/t/p/original${detailMovie.poster_path}`;
   const urlBackdrop = `https://image.tmdb.org/t/p/original${detailMovie.backdrop_path}`;
   const year =
     detailMovie?.release_date?.slice(0, 4) ||
     detailMovie?.first_air_date?.slice(0, 4);
   const runtime = calculateTime(detailMovie?.runtime);
+
+  const name = detailMovie?.name || detailMovie?.title;
+
+  //this is for tv
+  const currentSeason = detailMovie?.number_of_seasons;
+  const numberOfEpisode = detailMovie?.number_of_episodes;
 
   return (
     <div className="container-title-section">
@@ -19,9 +25,11 @@ export function TitleSection({ detailMovie }) {
             <img src={urlPoster} />
           </div>
           <div>
-            <h1>{detailMovie.name || detailMovie.title}</h1>
+            <h1>{name}</h1>
             <span>
-              {year} &#183; {runtime}
+              {currentMovie.media_type === "movie"
+                ? `${year} \u00B7 ${runtime}`
+                : `${year} \u00B7 ${currentSeason} seasons \u00B7 ${numberOfEpisode} episodes`}
             </span>
             <div className="box-genre-of-movie">
               {detailMovie?.genres?.map((genre) => {

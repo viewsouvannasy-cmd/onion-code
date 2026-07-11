@@ -62,6 +62,7 @@ export function PupolarSection({ containmentState, isLists, setIsLists }) {
                 setIsBackground={setIsBackground}
                 setIsAnimation={setIsAnimation}
                 setCurrentMovie={setCurrentMovie}
+                containmentState={containmentState}
               />
             );
           })}
@@ -76,6 +77,7 @@ export function PupolarSection({ containmentState, isLists, setIsLists }) {
                 setIsBackground={setIsBackground}
                 setIsAnimation={setIsAnimation}
                 setCurrentMovie={setCurrentMovie}
+                containmentState={containmentState}
               />
             );
           })}

@@ -5,7 +5,9 @@ import { HeaderSection } from "../../components/Header/HeaderSection";
 import { TitleSection } from "./title-section/TitleSection";
 import { OverViewSection } from "./overview-section/OverViewSection";
 import { CastAndCrewSection } from "./castcrew-section/CastAndCrewSection";
-import { DetailSection } from "./detail-section/DetailSection";
+import { DetailSection } from "./movie-detail-section/DetailSection";
+import { MovieLikeSection } from "./more-like-section/MoreLikeSection";
+import { FooterSection } from "../../components/Footer/FooterSection";
 
 export function MoviePage() {
   const location = useLocation();
@@ -28,15 +30,15 @@ export function MoviePage() {
     document.title = `Onion - ${currentMovie.name || currentMovie.title}`;
   }, [currentMovie]);
 
-  console.log(currentMovie);
-
   return (
     <>
       <HeaderSection />
-      <TitleSection detailMovie={detailMovie} />
-      <OverViewSection detailMovie={detailMovie} />
+      <TitleSection detailMovie={detailMovie} currentMovie={currentMovie} />
+      <OverViewSection detailMovie={detailMovie} currentMovie={currentMovie} />
       <CastAndCrewSection detailMovie={detailMovie} />
       <DetailSection detailMovie={detailMovie} currentMovie={currentMovie} />
+      <MovieLikeSection detailMovie={detailMovie} currentMovie={currentMovie} />
+      <FooterSection />
     </>
   );
 }
