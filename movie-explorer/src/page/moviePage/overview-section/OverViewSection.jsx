@@ -2,7 +2,6 @@ import { formatMoney } from "../../../utils/formatMoney";
 import "./OverViewSection.css";
 
 export function OverViewSection({ detailMovie, mediaType }) {
-  console.log(detailMovie);
   const studio = detailMovie?.production_companies?.[0]?.name || "";
   const director =
     detailMovie?.credits?.crew?.find((proson) => proson.job === "Director") ||
@@ -11,7 +10,9 @@ export function OverViewSection({ detailMovie, mediaType }) {
   const budget = formatMoney(detailMovie?.budget || "");
 
   //this section for tv
-  const episodeLength = detailMovie?.episode_run_time?.[0];
+  const episodeLength = detailMovie?.episode_run_time?.[0] || "";
+
+  console.log(detailMovie);
   return (
     <div className="container-over-view-section-main">
       <div className="container-over-view-header">

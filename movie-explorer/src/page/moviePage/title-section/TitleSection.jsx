@@ -1,7 +1,15 @@
 import { calculateTime } from "../../../utils/calculateTime";
+import { getInfoMovie } from "../../../utils/getInfoMovie";
+
 import "./TitleSection.css";
 
-export function TitleSection({ detailMovie, mediaType }) {
+export function TitleSection({
+  detailMovie,
+  mediaType,
+  setIsBackground,
+  setIsAnimation,
+  setCurrentMovie,
+}) {
   const urlPoster = `https://image.tmdb.org/t/p/original${detailMovie.poster_path}`;
   const urlBackdrop = `https://image.tmdb.org/t/p/original${detailMovie.backdrop_path}`;
   const year =
@@ -14,6 +22,15 @@ export function TitleSection({ detailMovie, mediaType }) {
   //this is for tv
   const currentSeason = detailMovie?.number_of_seasons;
   const numberOfEpisode = detailMovie?.number_of_episodes;
+
+  //this function for add to list
+  function handleAddToList() {
+    setIsAnimation("open");
+    document.body.style.overflow = "hidden";
+    setCurrentMovie(getInfoMovie(detailMovie, urlPoster));
+
+    setIsBackground(true);
+  }
 
   return (
     <div className="container-title-section">
@@ -37,7 +54,7 @@ export function TitleSection({ detailMovie, mediaType }) {
               })}
             </div>
             <div className="box-btn-my-list-and-play-trailer">
-              <button>+My list</button>
+              <button onClick={handleAddToList}>+My list</button>
               <button>Play trailer</button>
             </div>
           </div>

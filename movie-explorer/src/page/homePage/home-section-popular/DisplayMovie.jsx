@@ -15,7 +15,9 @@ export function DisplayMovie({
 
   const urlPoster = `https://image.tmdb.org/t/p/original${movie.poster_path}`;
 
-  function handleOverlay() {
+  function handleOverlay(e) {
+    e.stopPropagation();
+
     setIsAnimation("open");
     document.body.style.overflow = "hidden";
     setCurrentMovie(getInfoMovie(movie, urlPoster));
@@ -23,8 +25,6 @@ export function DisplayMovie({
     setIsBackground(true);
     setIsFocus(false);
   }
-
-  console.log(movie);
 
   function handleToOwnPage() {
     navigate(`/${movie.media_type || containmentState.media_type}/${movie.id}`);

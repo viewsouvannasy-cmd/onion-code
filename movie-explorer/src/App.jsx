@@ -56,7 +56,10 @@ function App() {
         path="mylist/:listId"
         element={<ItemInListPage isLists={isLists} setIsLists={setIsLists} />}
       />
-      <Route path=":mediaType/:movieId" element={<MoviePage />} />
+      <Route
+        path=":mediaType/:movieId"
+        element={<MoviePage isLists={isLists} setIsLists={setIsLists} />}
+      />
     </Routes>
   );
 }

@@ -243,15 +243,6 @@
   animation: skeleton-shimmer 1.2s infinite;
 }
 
-@keyframes skeleton-shimmer {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(100%);
-  }
-}
-
 @media (max-width: 800px) {
   .container-view-all-movie-grid {
     grid-template-columns: 1fr 1fr 1fr 1fr;

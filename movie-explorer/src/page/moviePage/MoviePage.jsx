@@ -9,10 +9,29 @@ import { DetailSection } from "./movie-detail-section/DetailSection";
 import { MovieLikeSection } from "./more-like-section/MoreLikeSection";
 import { FooterSection } from "../../components/Footer/FooterSection";
 
-export function MoviePage() {
-  const { mediaType, movieId } = useParams();
+import { PopupAddToList } from "../../components/popup-add-to-List/PopupAddToList";
 
+export function MoviePage({ isLists, setIsLists }) {
+  const { mediaType, movieId } = useParams();
   const [detailMovie, setDetailMovie] = useState([]);
+
+  //this is use to control popup app to list
+  const [isBackground, setIsBackground] = useState(false);
+  const [isAnimation, setIsAnimation] = useState("");
+  const [currentMovie, setCurrentMovie] = useState({});
+
+  useEffect(() => {
+    if (isBackground) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    return () => {
+      document.body.style.overflow = "auto";
+      window.scrollTo({ top: 0 });
+    };
+  }, [isBackground]);
 
   useEffect(() => {
     const getDetail = async () => {
@@ -32,12 +51,31 @@ export function MoviePage() {
   return (
     <>
       <HeaderSection />
-      <TitleSection detailMovie={detailMovie} mediaType={mediaType} />
+      <TitleSection
+        detailMovie={detailMovie}
+        mediaType={mediaType}
+        setIsBackground={setIsBackground}
+        setIsAnimation={setIsAnimation}
+        setCurrentMovie={setCurrentMovie}
+      />
       <OverViewSection detailMovie={detailMovie} mediaType={mediaType} />
       <CastAndCrewSection detailMovie={detailMovie} />
-      <DetailSection detailMovie={detailMovie} mediaType={mediaType} />
+      <DetailSection
+        detailMovie={detailMovie}
+        mediaType={mediaType}
+        movieId={movieId}
+      />
       <MovieLikeSection mediaType={mediaType} movieId={movieId} />
       <FooterSection />
+      <PopupAddToList
+        isBackground={isBackground}
+        setIsBackground={setIsBackground}
+        isAnimation={isAnimation}
+        setIsAnimation={setIsAnimation}
+        isLists={isLists}
+        setIsLists={setIsLists}
+        currentMovie={currentMovie}
+      />
     </>
   );
 }

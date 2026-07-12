@@ -4,7 +4,6 @@ export function CastAndCrewSection({ detailMovie }) {
   const dataCast = detailMovie?.credits?.cast?.slice(0, 5) || [];
   let dataCrew = detailMovie?.credits?.crew?.slice(5, 10) || [];
 
-  console.log(detailMovie);
   return (
     <div className="container-cast-and-crew-section-main">
       <div className="container-cast-and-crew-header">
@@ -14,6 +13,7 @@ export function CastAndCrewSection({ detailMovie }) {
       <div className="container-show-cast-and-crew">
         {dataCast.map((person) => {
           const profilePath = `https://image.tmdb.org/t/p/w185${person.profile_path}`;
+
           return (
             <div key={person.id} className="cast-and-crew-item">
               <div>
