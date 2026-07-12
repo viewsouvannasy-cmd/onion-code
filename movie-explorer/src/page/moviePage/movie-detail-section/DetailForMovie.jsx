@@ -2,12 +2,11 @@ import dayjs from "dayjs";
 import { calculateTime } from "../../../utils/calculateTime";
 import { formatMoney } from "../../../utils/formatMoney";
 
-export function DetailForMovie({ detailMovie, currentMovie }) {
+export function DetailForMovie({ detailMovie, mediaType }) {
   const format =
-    currentMovie.media_type.slice(0, 1).toUpperCase() +
-    currentMovie.media_type.slice(1, currentMovie.media_type.length);
+    mediaType.slice(0, 1).toUpperCase() + mediaType.slice(1, mediaType.length);
   const runtime = calculateTime(detailMovie?.runtime);
-  const releaseDate = dayjs(currentMovie.release_date).format("MMMM D, YYYY");
+  const releaseDate = dayjs(detailMovie?.release_date).format("MMMM D, YYYY");
   const revenue = formatMoney(detailMovie?.revenue);
   return (
     <div className="container-detail-box">
@@ -25,7 +24,7 @@ export function DetailForMovie({ detailMovie, currentMovie }) {
       </div>
       <div>
         <span>RATING</span>
-        <p>{currentMovie.vote_average.toFixed(1)}</p>
+        <p>{detailMovie?.vote_average?.toFixed(1)}</p>
       </div>
       <div>
         <span>REVENUE</span>

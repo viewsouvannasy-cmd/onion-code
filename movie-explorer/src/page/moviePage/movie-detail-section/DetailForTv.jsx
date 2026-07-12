@@ -1,4 +1,4 @@
-export function DetailForTv({ detailMovie, currentMovie }) {
+export function DetailForTv({ detailMovie }) {
   return (
     <>
       <div className="container-detail-header-season">

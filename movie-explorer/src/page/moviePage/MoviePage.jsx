@@ -1,4 +1,4 @@
-import { useLocation } from "react-router";
+import { useParams } from "react-router";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { HeaderSection } from "../../components/Header/HeaderSection";
@@ -10,34 +10,33 @@ import { MovieLikeSection } from "./more-like-section/MoreLikeSection";
 import { FooterSection } from "../../components/Footer/FooterSection";
 
 export function MoviePage() {
-  const location = useLocation();
-  const currentMovie = location.state;
+  const { mediaType, movieId } = useParams();
 
   const [detailMovie, setDetailMovie] = useState([]);
 
   useEffect(() => {
     const getDetail = async () => {
       let response = await axios.get(
-        `https://api.themoviedb.org/3/${currentMovie.media_type}/${currentMovie.id}?api_key=cb8d9a517e7387524c6cd936f1752bc0&append_to_response=credits`,
+        `https://api.themoviedb.org/3/${mediaType}/${movieId}?api_key=cb8d9a517e7387524c6cd936f1752bc0&append_to_response=credits`,
       );
 
       setDetailMovie(response.data);
     };
     getDetail();
-  }, [currentMovie]);
+  }, [mediaType, movieId]);
 
   useEffect(() => {
-    document.title = `Onion - ${currentMovie.name || currentMovie.title}`;
-  }, [currentMovie]);
+    document.title = `Onion - ${detailMovie?.name || detailMovie?.title}`;
+  }, [detailMovie]);
 
   return (
     <>
       <HeaderSection />
-      <TitleSection detailMovie={detailMovie} currentMovie={currentMovie} />
-      <OverViewSection detailMovie={detailMovie} currentMovie={currentMovie} />
+      <TitleSection detailMovie={detailMovie} mediaType={mediaType} />
+      <OverViewSection detailMovie={detailMovie} mediaType={mediaType} />
       <CastAndCrewSection detailMovie={detailMovie} />
-      <DetailSection detailMovie={detailMovie} currentMovie={currentMovie} />
-      <MovieLikeSection detailMovie={detailMovie} currentMovie={currentMovie} />
+      <DetailSection detailMovie={detailMovie} mediaType={mediaType} />
+      <MovieLikeSection mediaType={mediaType} movieId={movieId} />
       <FooterSection />
     </>
   );

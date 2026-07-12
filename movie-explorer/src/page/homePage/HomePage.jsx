@@ -10,7 +10,7 @@ export function HomePage({ isLists, setIsLists }) {
     name: "home",
     genrePath: "trending/all/week",
     detail: "",
-    media_type: "tv",
+    media_type: "",
   };
   return (
     <>

@@ -1,7 +1,7 @@
 import { calculateTime } from "../../../utils/calculateTime";
 import "./TitleSection.css";
 
-export function TitleSection({ detailMovie, currentMovie }) {
+export function TitleSection({ detailMovie, mediaType }) {
   const urlPoster = `https://image.tmdb.org/t/p/original${detailMovie.poster_path}`;
   const urlBackdrop = `https://image.tmdb.org/t/p/original${detailMovie.backdrop_path}`;
   const year =
@@ -27,7 +27,7 @@ export function TitleSection({ detailMovie, currentMovie }) {
           <div>
             <h1>{name}</h1>
             <span>
-              {currentMovie.media_type === "movie"
+              {mediaType === "movie"
                 ? `${year} \u00B7 ${runtime}`
                 : `${year} \u00B7 ${currentSeason} seasons \u00B7 ${numberOfEpisode} episodes`}
             </span>

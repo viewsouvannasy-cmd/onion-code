@@ -26,7 +26,7 @@ export function DisplayMoreLikeItem({ movie }) {
         <img src={urlPoster} loading="lazy" />
       </div>
       <p>
-        {addDetail?.title} &#183; {genre}
+        {addDetail?.title || addDetail?.name} &#183; {genre}
       </p>
     </div>
   );

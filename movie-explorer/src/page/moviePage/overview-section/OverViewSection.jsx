@@ -1,7 +1,7 @@
 import { formatMoney } from "../../../utils/formatMoney";
 import "./OverViewSection.css";
 
-export function OverViewSection({ detailMovie, currentMovie }) {
+export function OverViewSection({ detailMovie, mediaType }) {
   console.log(detailMovie);
   const studio = detailMovie?.production_companies?.[0]?.name || "";
   const director =
@@ -22,15 +22,11 @@ export function OverViewSection({ detailMovie, currentMovie }) {
         <div>{detailMovie.overview}</div>
         <div>
           <div className="box-detail">
-            <span>
-              {currentMovie.media_type === "movie" ? "DIRECTOR" : "CREATOR"}
-            </span>
+            <span>{mediaType === "movie" ? "DIRECTOR" : "CREATOR"}</span>
             <span>{director.name}</span>
           </div>
           <div className="box-detail">
-            <span>
-              {currentMovie.media_type === "movie" ? "STUDIO" : "NETWORK"}
-            </span>
+            <span>{mediaType === "movie" ? "STUDIO" : "NETWORK"}</span>
             <span>{studio}</span>
           </div>
           <div className="box-detail">
@@ -38,15 +34,9 @@ export function OverViewSection({ detailMovie, currentMovie }) {
             <span>{language}</span>
           </div>
           <div className="box-detail">
+            <span>{mediaType === "movie" ? "BUDGET" : "EPISODE LENGTH"}</span>
             <span>
-              {currentMovie.media_type === "movie"
-                ? "BUDGET"
-                : "EPISODE LENGTH"}
-            </span>
-            <span>
-              {currentMovie.media_type === "movie"
-                ? `${budget}$`
-                : `~${episodeLength} min`}
+              {mediaType === "movie" ? `${budget}$` : `~${episodeLength} min`}
             </span>
           </div>
         </div>

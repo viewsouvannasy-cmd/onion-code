@@ -3,14 +3,14 @@ import axios from "axios";
 import { DisplayMoreLikeItem } from "./DisplayMoreLikeItem";
 import "./MovieLikeSection.css";
 
-export function MovieLikeSection({ detailMovie, currentMovie }) {
+export function MovieLikeSection({ mediaType, movieId }) {
   const [recommendMovie, setRecommendMovie] = useState([]);
 
   useEffect(() => {
     const fetchRecommend = async () => {
       try {
         const response = await axios.get(
-          `https://api.themoviedb.org/3/${currentMovie.media_type}/${currentMovie.id}/recommendations?api_key=cb8d9a517e7387524c6cd936f1752bc0`,
+          `https://api.themoviedb.org/3/${mediaType}/${movieId}/recommendations?api_key=cb8d9a517e7387524c6cd936f1752bc0`,
         );
         setRecommendMovie(response.data.results.slice(0, 6));
       } catch (err) {
@@ -18,7 +18,7 @@ export function MovieLikeSection({ detailMovie, currentMovie }) {
       }
     };
     fetchRecommend();
-  }, [detailMovie, currentMovie]);
+  }, [mediaType, movieId]);
 
   return (
     <div className="container-more-like-section-main">
