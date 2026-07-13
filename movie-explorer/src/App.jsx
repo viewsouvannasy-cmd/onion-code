@@ -10,6 +10,7 @@ import { MyListPage } from "./page/myListPage/MyListPage";
 import { ItemInListPage } from "./page/itemInListPage/ItemInListPage";
 import { ViewAllMoviePage } from "./page/viewAllMoviePage/ViewAllMoviePage";
 import { MoviePage } from "./page/moviePage/MoviePage";
+import { CastAndCrewPage } from "./page/castAndCrewPage/CastAndCrewPage";
 
 import "./styles/animation.css";
 
@@ -59,6 +60,11 @@ function App() {
       <Route
         path=":mediaType/:movieId"
         element={<MoviePage isLists={isLists} setIsLists={setIsLists} />}
+      />
+
+      <Route
+        path=":mediaType/:movieId/cast&crew"
+        element={<CastAndCrewPage />}
       />
     </Routes>
   );

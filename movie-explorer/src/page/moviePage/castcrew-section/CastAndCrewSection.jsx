@@ -1,8 +1,21 @@
+import { useNavigate } from "react-router";
 import "./CastAndCrewSection.css";
 
 export function CastAndCrewSection({ detailMovie }) {
+  const navigate = useNavigate();
+
   const dataCast = detailMovie?.credits?.cast?.slice(0, 5) || [];
   let dataCrew = detailMovie?.credits?.crew?.slice(5, 10) || [];
+
+  function handleLinkToCastAndCrewPage() {
+    navigate("cast&crew", {
+      state: {
+        data: detailMovie,
+        cast: detailMovie.credits.cast,
+        crew: detailMovie.credits.crew,
+      },
+    });
+  }
 
   return (
     <div className="container-cast-and-crew-section-main">
@@ -50,7 +63,7 @@ export function CastAndCrewSection({ detailMovie }) {
             </div>
           );
         })}
-        <button>
+        <button onClick={handleLinkToCastAndCrewPage}>
           View More
           <img src="/image/icon/left-arrow-view-more.png" />
         </button>
