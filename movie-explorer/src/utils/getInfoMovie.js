@@ -1,6 +1,6 @@
 import dayjs from "dayjs";
 
-export function getInfoMovie(movie, urlPoster) {
+export function getInfoMovie(movie, urlPoster, mediaType) {
   const urlBackdrop = `https://image.tmdb.org/t/p/original${movie.backdrop_path}`;
   const currentDate = dayjs().format("D/M/YYYY");
   return {
@@ -10,5 +10,6 @@ export function getInfoMovie(movie, urlPoster) {
     url_backdrop: urlBackdrop,
     name: movie.title || movie.name,
     date_release: movie.release_date || movie.first_air_date,
+    media_type: mediaType,
   };
 }

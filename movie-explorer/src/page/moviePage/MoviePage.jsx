@@ -29,7 +29,6 @@ export function MoviePage({ isLists, setIsLists }) {
 
     return () => {
       document.body.style.overflow = "auto";
-      window.scrollTo({ top: 0 });
     };
   }, [isBackground]);
 

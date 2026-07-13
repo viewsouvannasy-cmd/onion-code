@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router";
 import axios from "axios";
 
 export function MovieTrending({ movie, index, containmentState }) {
+  const navigate = useNavigate();
   const [genreMovie, setGenreMovie] = useState([]);
 
   useEffect(() => {
@@ -24,8 +26,13 @@ export function MovieTrending({ movie, index, containmentState }) {
   const urlPoster = `https://image.tmdb.org/t/p/original${movie.poster_path}`;
   const year = movie.first_air_date || movie.release_date;
 
+  function handleToOwnPage() {
+    navigate(`/${movie.media_type || containmentState.media_type}/${movie.id}`);
+    window.scroll({ top: 0 });
+  }
+
   return (
-    <div className="movie-trending">
+    <div className="movie-trending" role="button" onClick={handleToOwnPage}>
       <h2>{index + 1}</h2>
       <img src={urlPoster} />
       <div className="container-vote">

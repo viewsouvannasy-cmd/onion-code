@@ -6,10 +6,11 @@ import { PopupAddToList } from "../../../components/popup-add-to-List/PopupAddTo
 import "./PupolarSection.css";
 
 export function PupolarSection({ containmentState, isLists, setIsLists }) {
-  const [dataMovie, setDataMovie] = useState([]);
+  const [dataMovie, setDataMovie] = useState(new Array(20).fill("a"));
   const [isBackground, setIsBackground] = useState(false);
   const [isAnimation, setIsAnimation] = useState("");
   const [currentMovie, setCurrentMovie] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -30,6 +31,7 @@ export function PupolarSection({ containmentState, isLists, setIsLists }) {
         `https://api.themoviedb.org/3/${containmentState.genrePath}?api_key=cb8d9a517e7387524c6cd936f1752bc0${containmentState.detail}`,
       );
       setDataMovie(response.data.results);
+      setIsLoading(false);
     };
     fetchMovie();
   }, [containmentState]);
@@ -39,7 +41,7 @@ export function PupolarSection({ containmentState, isLists, setIsLists }) {
       state: {
         genrePath: containmentState.genrePath,
         detail: containmentState.detail,
-        media_type: containmentState.media_type,
+        media_type: containmentState.media_type || "tv",
       },
     });
   }
@@ -63,6 +65,7 @@ export function PupolarSection({ containmentState, isLists, setIsLists }) {
                 setIsAnimation={setIsAnimation}
                 setCurrentMovie={setCurrentMovie}
                 containmentState={containmentState}
+                isLoading={isLoading}
               />
             );
           })}
@@ -78,6 +81,7 @@ export function PupolarSection({ containmentState, isLists, setIsLists }) {
                 setIsAnimation={setIsAnimation}
                 setCurrentMovie={setCurrentMovie}
                 containmentState={containmentState}
+                isLoading={isLoading}
               />
             );
           })}

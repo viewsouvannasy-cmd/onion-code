@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router";
 
 export function DisplayItem({
   item,
@@ -12,6 +13,7 @@ export function DisplayItem({
   setDeleteList,
   deleteList,
 }) {
+  const navigate = useNavigate();
   const [isFocus, setIsFocus] = useState(false);
   const [isCheck, setIsCheck] = useState(false);
 
@@ -32,8 +34,9 @@ export function DisplayItem({
     setIsFocus(false);
   }
 
-  function handleLinkMovie() {
-    console.log("link");
+  function handleToOwnPage() {
+    navigate(`/${item.media_type}/${item.id}`);
+    window.scroll({ top: 0 });
   }
 
   function handleCheckDelete() {
@@ -58,7 +61,7 @@ export function DisplayItem({
       <div
         className={`container-add-date ${isAnimation}`}
         role="button"
-        onClick={isOpenDelete ? handleCheckDelete : handleLinkMovie}
+        onClick={isOpenDelete ? handleCheckDelete : handleToOwnPage}
       >
         <p
           style={{

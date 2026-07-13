@@ -9,6 +9,7 @@ export function DisplayMovie({
   setIsAnimation,
   setCurrentMovie,
   containmentState,
+  isLoading,
 }) {
   const navigate = useNavigate();
   const [isFocus, setIsFocus] = useState(false);
@@ -20,7 +21,13 @@ export function DisplayMovie({
 
     setIsAnimation("open");
     document.body.style.overflow = "hidden";
-    setCurrentMovie(getInfoMovie(movie, urlPoster));
+    setCurrentMovie(
+      getInfoMovie(
+        movie,
+        urlPoster,
+        `${movie.media_type || containmentState.media_type}`,
+      ),
+    );
 
     setIsBackground(true);
     setIsFocus(false);
@@ -28,15 +35,23 @@ export function DisplayMovie({
 
   function handleToOwnPage() {
     navigate(`/${movie.media_type || containmentState.media_type}/${movie.id}`);
+    window.scroll({ top: 0 });
   }
 
   return (
-    <div className="container-movie" role="button" onClick={handleToOwnPage}>
-      <img src={urlPoster} />
-      <div className="container-movie-detail">
-        <p>{movie.title || movie.name}</p>
-        <span>{movie.release_date || movie.first_air_date}</span>
+    <div className="container-movie-main" role="button">
+      <div className="container-movie" onClick={handleToOwnPage}>
+        <div
+          className={`backdrop-image-container-movie ${isLoading && "loading"}`}
+        >
+          {!isLoading && <img src={urlPoster} />}
+        </div>
+        <div className="container-movie-detail">
+          <p>{movie.title || movie.name}</p>
+          <span>{movie.release_date || movie.first_air_date}</span>
+        </div>
       </div>
+
       <button
         className="list-icon"
         onFocus={() => setIsFocus(true)}

@@ -35,6 +35,7 @@ export function ItemInListPage({ isLists, setIsLists }) {
   }, [isLists, listId]);
 
   function handleCancel() {
+    setFocusOptionDelete(false);
     setIsAnimation("close");
     setTimeout(() => {
       setIsOpenDelete(false);

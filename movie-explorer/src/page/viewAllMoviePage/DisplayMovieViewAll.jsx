@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router";
 import { getInfoMovie } from "../../utils/getInfoMovie";
 
 export function DisplayMovieViewAll({
@@ -8,6 +9,7 @@ export function DisplayMovieViewAll({
   setIsAnimation,
   setCurrentMovie,
 }) {
+  const navigate = useNavigate();
   const [isFocus, setIsFocus] = useState(false);
 
   const urlPoster = `https://image.tmdb.org/t/p/original${movie.poster_path}`;
@@ -17,15 +19,21 @@ export function DisplayMovieViewAll({
 
   function handleAddToList() {
     document.body.style.overflow = "hidden";
-    setCurrentMovie(getInfoMovie(movie, urlPoster));
+    setCurrentMovie(getInfoMovie(movie, urlPoster, movie.media_type));
     setIsBackground(true);
     setIsAnimation("open");
   }
+  function handleToOwnPage() {
+    navigate(`/${movie.media_type}/${movie.id}`);
+    window.scroll({ top: 0 });
+  }
 
   return (
-    <div className="item-view-all-movie">
+    <div className="item-view-all-movie-main">
       <div
         className={`background-image-item-view-all ${isLoading && "loading"}`}
+        role="button"
+        onClick={handleToOwnPage}
       >
         {!isLoading && <img src={urlPoster} />}
       </div>
@@ -42,6 +50,7 @@ export function DisplayMovieViewAll({
           </span>
         </div>
       </div>
+
       <button
         className="list-option-icon"
         onFocus={() => setIsFocus(true)}

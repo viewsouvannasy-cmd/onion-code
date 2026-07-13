@@ -31,7 +31,7 @@ export function AwardsSection() {
       <div className="container-award-section-main">
         <div className="container-award-section">
           <div className="container-title-award">
-            <h3>Awards</h3>
+            <h3>Mosts Votes</h3>
             <a>view all</a>
           </div>
         </div>
@@ -43,7 +43,12 @@ export function AwardsSection() {
             <div className="box-award-movie">
               {movieRate.map((movie, index) => {
                 return (
-                  <AwardMoive key={movie.id} movie={movie} index={index} />
+                  <AwardMoive
+                    key={movie.id}
+                    movie={movie}
+                    index={index}
+                    mediaType="movie"
+                  />
                 );
               })}
             </div>
@@ -54,7 +59,12 @@ export function AwardsSection() {
             <div className="box-award-movie">
               {animeRate.map((movie, index) => {
                 return (
-                  <AwardMoive key={movie.id} movie={movie} index={index} />
+                  <AwardMoive
+                    key={movie.id}
+                    movie={movie}
+                    index={index}
+                    mediaType="tv"
+                  />
                 );
               })}
             </div>
