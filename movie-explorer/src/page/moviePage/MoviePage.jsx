@@ -10,6 +10,7 @@ import { MovieLikeSection } from "./more-like-section/MoreLikeSection";
 import { FooterSection } from "../../components/Footer/FooterSection";
 
 import { PopupAddToList } from "../../components/popup-add-to-List/PopupAddToList";
+import { PopupPlayTrailer } from "./popupPlayTrailer/PopupPlayTrailer";
 
 export function MoviePage({ isLists, setIsLists }) {
   const { mediaType, movieId } = useParams();
@@ -19,6 +20,10 @@ export function MoviePage({ isLists, setIsLists }) {
   const [isBackground, setIsBackground] = useState(false);
   const [isAnimation, setIsAnimation] = useState("");
   const [currentMovie, setCurrentMovie] = useState({});
+
+  //this is use to control popup play trailer
+  const [isOverlayTrailer, setIsOverlayTrailer] = useState(false);
+  const [isAnimationTrailer, setIsAnimationTrailer] = useState("");
 
   useEffect(() => {
     if (isBackground) {
@@ -31,6 +36,18 @@ export function MoviePage({ isLists, setIsLists }) {
       document.body.style.overflow = "auto";
     };
   }, [isBackground]);
+
+  useEffect(() => {
+    if (isOverlayTrailer) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isOverlayTrailer]);
 
   useEffect(() => {
     const getDetail = async () => {
@@ -56,9 +73,11 @@ export function MoviePage({ isLists, setIsLists }) {
         setIsBackground={setIsBackground}
         setIsAnimation={setIsAnimation}
         setCurrentMovie={setCurrentMovie}
+        setIsOverlayTrailer={setIsOverlayTrailer}
+        setIsAnimationTrailer={setIsAnimationTrailer}
       />
       <OverViewSection detailMovie={detailMovie} mediaType={mediaType} />
-      <CastAndCrewSection detailMovie={detailMovie} />
+      <CastAndCrewSection detailMovie={detailMovie} mediaType={mediaType} />
       <DetailSection
         detailMovie={detailMovie}
         mediaType={mediaType}
@@ -66,6 +85,8 @@ export function MoviePage({ isLists, setIsLists }) {
       />
       <MovieLikeSection mediaType={mediaType} movieId={movieId} />
       <FooterSection />
+
+      {/* this popup is for add to list */}
       <PopupAddToList
         isBackground={isBackground}
         setIsBackground={setIsBackground}
@@ -74,6 +95,16 @@ export function MoviePage({ isLists, setIsLists }) {
         isLists={isLists}
         setIsLists={setIsLists}
         currentMovie={currentMovie}
+      />
+
+      {/* this popup is for play trailer */}
+      <PopupPlayTrailer
+        isOverlayTrailer={isOverlayTrailer}
+        isAnimationTrailer={isAnimationTrailer}
+        setIsOverlayTrailer={setIsOverlayTrailer}
+        setIsAnimationTrailer={setIsAnimationTrailer}
+        mediaType={mediaType}
+        movieId={movieId}
       />
     </>
   );

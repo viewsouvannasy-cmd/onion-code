@@ -1,16 +1,18 @@
 import { useNavigate } from "react-router";
 import "./CastAndCrewSection.css";
 
-export function CastAndCrewSection({ detailMovie }) {
+export function CastAndCrewSection({ detailMovie, mediaType }) {
   const navigate = useNavigate();
 
   const dataCast = detailMovie?.credits?.cast?.slice(0, 5) || [];
   let dataCrew = detailMovie?.credits?.crew?.slice(5, 10) || [];
 
   function handleLinkToCastAndCrewPage() {
+    window.scroll({ top: 0 });
     navigate("cast&crew", {
       state: {
         data: detailMovie,
+        mediaType: mediaType,
         cast: detailMovie.credits.cast,
         crew: detailMovie.credits.crew,
       },

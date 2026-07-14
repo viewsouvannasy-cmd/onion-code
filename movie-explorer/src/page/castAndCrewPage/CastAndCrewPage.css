@@ -23,6 +23,7 @@
   border-radius: 5px;
   box-shadow: 0 4px 8px 2px rgba(0, 0, 0, 0.297);
   overflow: hidden;
+  flex-shrink: 0;
 }
 
 .container-cast-and-crew-header-page > div:nth-child(1) img {
@@ -35,10 +36,10 @@
 .container-cast-and-crew-header-page > div:nth-child(2) h1 {
   color: white;
   font-weight: 550;
+  line-height: 35px;
 }
 
-.container-cast-and-crew-header-page > div:nth-child(2) button {
-  border: none;
+.link-back-to-main {
   font-family: inter;
   color: #e3e3e3;
   background-color: transparent;
@@ -49,18 +50,20 @@
   align-items: center;
   gap: 5px;
   cursor: pointer;
+  text-decoration: none;
+  margin-top: 5px;
 }
 
-.container-cast-and-crew-header-page > div:nth-child(2) button:hover {
+.link-back-to-main:hover {
   color: #bdbdbd;
   text-decoration: underline;
 }
 
-.container-cast-and-crew-header-page > div:nth-child(2) button img {
+.link-back-to-main img {
   width: 12px;
 }
 
-/* ---------- this is stype for container show cast and crwew ------- */
+/* ---------- this is stype for container show cast and crew ------- */
 
 .container-show-cast-and-crew-main-page {
   width: 100%;
@@ -148,4 +151,10 @@
 .cast-and-crew-item-page > div:nth-child(2) span {
   font-size: 12.5px;
   color: #676767;
+}
+
+@media (max-width: 600px) {
+  .container-cast-and-crew-header-page > div:nth-child(2) h1 {
+    font-size: 30px;
+  }
 }

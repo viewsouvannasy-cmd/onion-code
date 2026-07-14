@@ -11,8 +11,10 @@ export function OverViewSection({ detailMovie, mediaType }) {
 
   //this section for tv
   const episodeLength = detailMovie?.episode_run_time?.[0] || "";
+  const creator = detailMovie?.credits?.crew?.find(
+    (person) => person.department === "Writing",
+  )?.name;
 
-  console.log(detailMovie);
   return (
     <div className="container-over-view-section-main">
       <div className="container-over-view-header">
@@ -24,7 +26,7 @@ export function OverViewSection({ detailMovie, mediaType }) {
         <div>
           <div className="box-detail">
             <span>{mediaType === "movie" ? "DIRECTOR" : "CREATOR"}</span>
-            <span>{director.name}</span>
+            <span>{mediaType === "movie" ? director.name : creator}</span>
           </div>
           <div className="box-detail">
             <span>{mediaType === "movie" ? "STUDIO" : "NETWORK"}</span>

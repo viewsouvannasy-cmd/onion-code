@@ -74,19 +74,18 @@
 .container-info-movie > div:last-child h1 {
   color: white;
   font-size: 40px;
-  margin-top: -12px;
-  line-height: 45px;
+  line-height: 40px;
 }
 
 .container-info-movie > div:last-child span {
   color: #e5e5e5;
   font-family: inter;
   font-size: 14px;
-  margin-top: -5px;
 }
 
 .box-genre-of-movie {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   gap: 10px;
 }
 
@@ -119,6 +118,7 @@
 
 .box-btn-my-list-and-play-trailer {
   display: flex;
+
   gap: 10px;
 }
 
@@ -138,6 +138,12 @@
   background-color: #813e5c;
 }
 
+@media (max-width: 780px) {
+  .box-genre-of-movie {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
 @media (max-width: 630px) {
   .container-info-movie > div:first-child {
     width: 130px;
@@ -154,10 +160,11 @@
   }
 
   .box-genre-of-movie button {
-    font-size: 12px;
+    font-size: 10px;
+    padding: 5px 10px;
   }
 
-  .box-genre-of-movie button:nth-child(3) {
-    display: none;
+  .box-genre-of-movie {
+    grid-template-columns: repeat(3, 1fr);
   }
 }

@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router";
 import axios from "axios";
 
 export function DisplayMoreLikeItem({ movie }) {
   const [addDetail, setAddDetail] = useState([]);
   const [randomGenre, setRandomGenre] = useState(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchDetail = async () => {
@@ -20,8 +22,13 @@ export function DisplayMoreLikeItem({ movie }) {
   const urlPoster = `https://image.tmdb.org/t/p/original${addDetail.poster_path}`;
   const genre = addDetail?.genres?.[randomGenre]?.name || "";
 
+  function handleToOwnPage() {
+    window.scroll({ top: 0 });
+    navigate(`/${movie.media_type}/${addDetail.id}`);
+  }
+
   return (
-    <div className="more-like-item">
+    <div className="more-like-item" role="button" onClick={handleToOwnPage}>
       <div>
         <img src={urlPoster} loading="lazy" />
       </div>

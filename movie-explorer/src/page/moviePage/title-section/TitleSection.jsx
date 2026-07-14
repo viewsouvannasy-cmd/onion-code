@@ -9,6 +9,8 @@ export function TitleSection({
   setIsBackground,
   setIsAnimation,
   setCurrentMovie,
+  setIsOverlayTrailer,
+  setIsAnimationTrailer,
 }) {
   const urlPoster = `https://image.tmdb.org/t/p/original${detailMovie.poster_path}`;
   const urlBackdrop = `https://image.tmdb.org/t/p/original${detailMovie.backdrop_path}`;
@@ -30,6 +32,13 @@ export function TitleSection({
     setCurrentMovie(getInfoMovie(detailMovie, urlPoster));
 
     setIsBackground(true);
+  }
+
+  //this function for play trailer
+  function handlePlayTrailer() {
+    setIsAnimationTrailer("open");
+    document.body.style.overflow = "hidden";
+    setIsOverlayTrailer(true);
   }
 
   return (
@@ -55,7 +64,7 @@ export function TitleSection({
             </div>
             <div className="box-btn-my-list-and-play-trailer">
               <button onClick={handleAddToList}>+My list</button>
-              <button>Play trailer</button>
+              <button onClick={handlePlayTrailer}>Play trailer</button>
             </div>
           </div>
         </div>

@@ -1,4 +1,4 @@
-import { useLocation } from "react-router";
+import { useLocation, Link } from "react-router";
 import { useEffect } from "react";
 import { clearData } from "../../utils/clearData";
 import { HeaderSection } from "../../components/Header/HeaderSection";
@@ -7,7 +7,7 @@ import "./CastAndCrewPage.css";
 
 export function CastAndCrewPage() {
   const location = useLocation();
-  const { data, cast, crew } = location.state;
+  const { data, mediaType, cast, crew } = location.state;
 
   const newCast = clearData(cast);
   const newCrew = clearData(crew);
@@ -28,11 +28,11 @@ export function CastAndCrewPage() {
             <img src={urlPoster} />
           </div>
           <div>
-            <h1>Name Movie</h1>
-            <button>
+            <h1>{data.name || data.title}</h1>
+            <Link className="link-back-to-main" to={`/${mediaType}/${data.id}`}>
               <img src="/image/icon/left-arrow-back-main.png" />
               Back main
-            </button>
+            </Link>
           </div>
         </div>
       </div>
