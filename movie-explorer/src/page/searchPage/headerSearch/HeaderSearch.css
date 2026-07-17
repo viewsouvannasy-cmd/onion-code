@@ -1,0 +1,117 @@
+.container-search-main-page {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0 20px;
+  background-color: #b45a82;
+}
+
+.container-header-search-page {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  padding: 10px 0;
+}
+
+.container-header-search-page > div:nth-child(1) {
+  display: flex;
+  align-items: center;
+  width: 50%;
+  position: relative;
+}
+
+.container-header-search-page > div:nth-child(1) input {
+  border: none;
+  padding: 10px;
+  width: 80%;
+  border-radius: 50px;
+  font-style: italic;
+  box-shadow: 0px 1px 5px 1px rgba(0, 0, 0, 0.394);
+  color: #545454;
+}
+
+.container-header-search-page > div:nth-child(1) button {
+  border: none;
+  display: flex;
+  position: absolute;
+  right: 21%;
+  cursor: pointer;
+  padding: 5px;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  background-color: white;
+}
+
+.container-header-search-page > div:nth-child(1) button img {
+  width: 20px;
+  right: 22.5%;
+}
+
+.container-header-search-page > div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  justify-content: center;
+  width: 50%;
+  gap: 5px;
+}
+
+.container-header-search-page > div:nth-child(2) > p {
+  font-weight: 450;
+  color: white;
+}
+
+.container-total-movie-and-tv {
+  display: flex;
+  gap: 10px;
+}
+
+.total-movie,
+.total-tv {
+  display: flex;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.total-movie > p,
+.total-tv > p {
+  color: white;
+  font-size: 0.9rem;
+}
+
+.total-movie > span,
+.total-tv > span {
+  color: rgb(255, 255, 255);
+  font-size: 0.9rem;
+}
+
+.total-movie:hover,
+.total-tv:hover {
+  border-bottom: 1px solid white;
+}
+
+@media (max-width: 480px) {
+  .container-header-search-page {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .container-header-search-page > div:nth-child(1) input {
+    width: 100%;
+  }
+
+  .container-header-search-page > div:nth-child(1) button {
+    right: 1%;
+  }
+
+  .container-header-search-page > div:nth-child(1),
+  .container-header-search-page > div:nth-child(2) {
+    width: 100%;
+  }
+
+  .container-header-search-page > div:nth-child(2) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}

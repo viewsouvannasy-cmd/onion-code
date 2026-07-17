@@ -84,9 +84,10 @@
 }
 
 .box-genre-of-movie {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  display: flex;
   gap: 10px;
+  flex-wrap: wrap;
+  row-gap: 5px;
 }
 
 .box-genre-of-movie button {
@@ -138,12 +139,6 @@
   background-color: #813e5c;
 }
 
-@media (max-width: 780px) {
-  .box-genre-of-movie {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
 @media (max-width: 630px) {
   .container-info-movie > div:first-child {
     width: 130px;
@@ -162,9 +157,5 @@
   .box-genre-of-movie button {
     font-size: 10px;
     padding: 5px 10px;
-  }
-
-  .box-genre-of-movie {
-    grid-template-columns: repeat(3, 1fr);
   }
 }

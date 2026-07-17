@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router";
-import { HomePage } from "./page/homePage/HomePage";
 import { useState, useEffect } from "react";
 
+import { HomePage } from "./page/homePage/HomePage";
 import { MovieSection } from "./page/selectSection/MovieSection";
 import { AnimeSection } from "./page/selectSection/AnimeSection";
 import { SeriesSection } from "./page/selectSection/SeriesSection";
@@ -11,6 +11,7 @@ import { ItemInListPage } from "./page/itemInListPage/ItemInListPage";
 import { ViewAllMoviePage } from "./page/viewAllMoviePage/ViewAllMoviePage";
 import { MoviePage } from "./page/moviePage/MoviePage";
 import { CastAndCrewPage } from "./page/castAndCrewPage/CastAndCrewPage";
+import { SearchPage } from "./page/searchPage/SearchPage";
 
 import "./styles/animation.css";
 
@@ -66,6 +67,8 @@ function App() {
         path=":mediaType/:movieId/cast&crew"
         element={<CastAndCrewPage />}
       />
+
+      <Route path="search/:type/:page" element={<SearchPage />} />
     </Routes>
   );
 }

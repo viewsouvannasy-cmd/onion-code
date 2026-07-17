@@ -1,10 +1,31 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router";
 import axios from "axios";
 import "./SectionSearch.css";
 
 export function SectionSearch({ containmentState }) {
   const [backdrop, setBackdrop] = useState(null);
   const [genresMovie, setGenresMovie] = useState([]);
+
+  const navigate = useNavigate();
+
+  // this state use for searching
+  const [inputQuery, setInputQuery] = useState("");
+
+  function handleSearch(value) {
+    if (value) {
+      navigate(`/search/movie/1?query=${encodeURIComponent(value)}`);
+      return;
+    }
+    navigate(`/search/movie/1?query=${encodeURIComponent(inputQuery)}`);
+    setInputQuery("");
+  }
+
+  function handleInputSearch(e) {
+    if (e.key === "Enter") {
+      handleSearch();
+    }
+  }
 
   useEffect(() => {
     const loadBackdrop = async () => {
@@ -42,13 +63,22 @@ export function SectionSearch({ containmentState }) {
             <h2>series, anime, cartoon</h2>
           </div>
           <div className="input-search">
-            <input placeholder="Search for movie, series, anime..." />
-            <button>Search</button>
+            <input
+              placeholder="Search for movie, series, anime..."
+              onChange={(e) => setInputQuery(e.target.value)}
+              onKeyDown={handleInputSearch}
+              value={inputQuery}
+            />
+            <button onClick={handleSearch}>Search</button>
           </div>
           <div className="container-option-genre">
             {genresMovie.map((genre) => {
               return (
-                <button key={genre.id} className="option-genre-btn">
+                <button
+                  key={genre.id}
+                  className="option-genre-btn"
+                  onClick={() => handleSearch(genre.name)}
+                >
                   {genre.name}
                 </button>
               );

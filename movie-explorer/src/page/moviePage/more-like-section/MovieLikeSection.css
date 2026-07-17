@@ -52,6 +52,7 @@
   background-color: #989898;
   border-radius: 7px;
   overflow: hidden;
+  box-shadow: 0 0 1px 0 black;
 }
 
 .more-like-item div img {

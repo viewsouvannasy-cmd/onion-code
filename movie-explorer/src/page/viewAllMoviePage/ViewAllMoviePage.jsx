@@ -91,6 +91,10 @@ export function ViewAllMoviePage({ isLists, setIsLists }) {
     setInputPage(e.target.value);
   }
 
+  function handleSearch(value) {
+    navigate(`/search/movie/1?query=${value}`);
+  }
+
   return (
     <>
       <title>Onion - view all</title>
@@ -100,7 +104,11 @@ export function ViewAllMoviePage({ isLists, setIsLists }) {
       <div className="container-view-all-movie-main">
         <div className="container-title-genre-slid">
           {genreMovie.map((genre) => {
-            return <button key={genre.id}>{genre.name}</button>;
+            return (
+              <button key={genre.id} onClick={() => handleSearch(genre.name)}>
+                {genre.name}
+              </button>
+            );
           })}
         </div>
         <div className="container-view-all-movie-grid">
