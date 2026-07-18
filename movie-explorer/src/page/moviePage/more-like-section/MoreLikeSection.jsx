@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { DisplayMoreLikeItem } from "./DisplayMoreLikeItem";
 import "./MovieLikeSection.css";
+import { api } from "../../../main";
 
 export function MovieLikeSection({ mediaType, movieId }) {
   const [recommendMovie, setRecommendMovie] = useState([]);
@@ -10,7 +11,7 @@ export function MovieLikeSection({ mediaType, movieId }) {
     const fetchRecommend = async () => {
       try {
         const response = await axios.get(
-          `https://api.themoviedb.org/3/${mediaType}/${movieId}/recommendations?api_key=cb8d9a517e7387524c6cd936f1752bc0`,
+          `https://api.themoviedb.org/3/${mediaType}/${movieId}/recommendations?api_key=${api}`,
         );
         setRecommendMovie(response.data.results.slice(0, 6));
       } catch (err) {

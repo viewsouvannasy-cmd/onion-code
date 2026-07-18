@@ -5,6 +5,7 @@ import { HeaderSection } from "../../components/Header/HeaderSection";
 import { HeaderSearch } from "./headerSearch/HeaderSearch";
 import { ResultsSearchSection } from "./resultsSearchSection/ResultsSearchSection";
 import { FooterSection } from "./../../components/Footer/FooterSection";
+import { api } from "../../main";
 
 export function SearchPage() {
   const [searchParams] = useSearchParams();
@@ -19,8 +20,8 @@ export function SearchPage() {
 
   useEffect(() => {
     const fetchSearchResults = async () => {
-      const urlMovie = `https://api.themoviedb.org/3/search/movie?api_key=cb8d9a517e7387524c6cd936f1752bc0&query=${encodeURIComponent(queryValue)}&page=${page}`;
-      const urlTv = `https://api.themoviedb.org/3/search/tv?api_key=cb8d9a517e7387524c6cd936f1752bc0&query=${encodeURIComponent(queryValue)})}&page=${page}`;
+      const urlMovie = `https://api.themoviedb.org/3/search/movie?api_key=${api}&query=${encodeURIComponent(queryValue)}&page=${page}`;
+      const urlTv = `https://api.themoviedb.org/3/search/tv?api_key=${api}&query=${encodeURIComponent(queryValue)})}&page=${page}`;
 
       let responseMovie = await axios.get(urlMovie);
       let responseTv = await axios.get(urlTv);

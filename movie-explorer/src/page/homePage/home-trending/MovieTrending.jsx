@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import axios from "axios";
+import { api } from "../../../main";
 
 export function MovieTrending({ movie, index, containmentState }) {
   const navigate = useNavigate();
@@ -10,7 +11,7 @@ export function MovieTrending({ movie, index, containmentState }) {
     const fetchGenre = async () => {
       try {
         const response = await axios.get(
-          `https://api.themoviedb.org/3/${movie.media_type || containmentState.media_type}/${movie.id}?api_key=cb8d9a517e7387524c6cd936f1752bc0`,
+          `https://api.themoviedb.org/3/${movie.media_type || containmentState.media_type}/${movie.id}?api_key=${api}`,
         );
 
         setGenreMovie(

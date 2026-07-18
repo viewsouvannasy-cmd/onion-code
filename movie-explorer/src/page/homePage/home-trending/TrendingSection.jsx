@@ -3,6 +3,7 @@ import axios from "axios";
 import { MovieTrending } from "./MovieTrending";
 import { sortArray } from "../../../utils/sortArray";
 import "./TrendingSection.css";
+import { api } from "../../../main";
 
 export function TrendingSection({ containmentState }) {
   const [rate, setRate] = useState([]);
@@ -10,7 +11,7 @@ export function TrendingSection({ containmentState }) {
   useEffect(() => {
     const fetchRate = async () => {
       let response = await axios.get(
-        `https://api.themoviedb.org/3/${containmentState.genrePath}?api_key=cb8d9a517e7387524c6cd936f1752bc0${containmentState.detail}`,
+        `https://api.themoviedb.org/3/${containmentState.genrePath}?api_key=${api}${containmentState.detail}`,
       );
 
       const dataMovie = sortArray(response.data.results, "vote_average");

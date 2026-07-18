@@ -11,6 +11,7 @@ import { FooterSection } from "../../components/Footer/FooterSection";
 
 import { PopupAddToList } from "../../components/popup-add-to-List/PopupAddToList";
 import { PopupPlayTrailer } from "./popupPlayTrailer/PopupPlayTrailer";
+import { api } from "../../main";
 
 export function MoviePage({ isLists, setIsLists }) {
   const { mediaType, movieId } = useParams();
@@ -52,7 +53,7 @@ export function MoviePage({ isLists, setIsLists }) {
   useEffect(() => {
     const getDetail = async () => {
       let response = await axios.get(
-        `https://api.themoviedb.org/3/${mediaType}/${movieId}?api_key=cb8d9a517e7387524c6cd936f1752bc0&append_to_response=credits`,
+        `https://api.themoviedb.org/3/${mediaType}/${movieId}?api_key=${api}&append_to_response=credits`,
       );
 
       setDetailMovie(response.data);

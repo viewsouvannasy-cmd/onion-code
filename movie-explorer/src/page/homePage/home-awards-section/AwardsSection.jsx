@@ -3,6 +3,9 @@ import { sortArray } from "../../../utils/sortArray";
 import axios from "axios";
 import { AwardMoive } from "./AwardMovie";
 import "./AwardsSection.css";
+
+import { api } from "../../../main";
+
 export function AwardsSection() {
   const [movieRate, setMovieRate] = useState([]);
   const [animeRate, setAnimeRate] = useState([]);
@@ -10,14 +13,14 @@ export function AwardsSection() {
   useEffect(() => {
     const fetchMovieRate = async () => {
       let response = await axios.get(
-        "https://api.themoviedb.org/3/discover/movie?api_key=cb8d9a517e7387524c6cd936f1752bc0&sort_by=vote_average.desc&vote_count.gte=1000&primary_release_year=2026&language=en-US",
+        `https://api.themoviedb.org/3/discover/movie?api_key=${api}&sort_by=vote_average.desc&vote_count.gte=1000&primary_release_year=2026&language=en-US`,
       );
       setMovieRate(
         sortArray(response.data.results, "vote_count").reverse().slice(0, 3),
       );
 
       response = await axios.get(
-        "https://api.themoviedb.org/3/discover/tv?api_key=cb8d9a517e7387524c6cd936f1752bc0&first_air_date_year=2026&with_origin_country=JP",
+        `https://api.themoviedb.org/3/discover/tv?api_key=${api}&first_air_date_year=2026&with_origin_country=JP`,
       );
       setAnimeRate(
         sortArray(response.data.results, "vote_count").reverse().slice(0, 3),

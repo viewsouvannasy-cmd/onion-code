@@ -4,6 +4,7 @@ import { useNavigate } from "react-router";
 import { DisplayMovie } from "./DisplayMovie";
 import { PopupAddToList } from "../../../components/popup-add-to-List/PopupAddToList";
 import "./PupolarSection.css";
+import { api } from "../../../main";
 
 export function PupolarSection({ containmentState, isLists, setIsLists }) {
   const [dataMovie, setDataMovie] = useState(new Array(20).fill("a"));
@@ -28,7 +29,7 @@ export function PupolarSection({ containmentState, isLists, setIsLists }) {
   useEffect(() => {
     const fetchMovie = async () => {
       let response = await axios.get(
-        `https://api.themoviedb.org/3/${containmentState.genrePath}?api_key=cb8d9a517e7387524c6cd936f1752bc0${containmentState.detail}`,
+        `https://api.themoviedb.org/3/${containmentState.genrePath}?api_key=${api}${containmentState.detail}`,
       );
       setDataMovie(response.data.results);
       setIsLoading(false);

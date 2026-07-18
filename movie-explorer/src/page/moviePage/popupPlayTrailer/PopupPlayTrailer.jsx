@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 import "./PopupPlayTrailer.css";
+import { api } from "../../../main";
 
 export function PopupPlayTrailer({
   isOverlayTrailer,
@@ -17,7 +18,7 @@ export function PopupPlayTrailer({
     const fetchDataVideo = async () => {
       try {
         const response = await axios.get(
-          `https://api.themoviedb.org/3/${mediaType}/${movieId}?api_key=cb8d9a517e7387524c6cd936f1752bc0&language=en-US&append_to_response=videos`,
+          `https://api.themoviedb.org/3/${mediaType}/${movieId}?api_key=${api}&language=en-US&append_to_response=videos`,
         );
         const videosTrailer = response.data.videos.results.filter(
           (v) => v.type === "Trailer" && v.site === "YouTube",

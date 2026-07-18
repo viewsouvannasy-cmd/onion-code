@@ -6,6 +6,7 @@ import { DisplayMovieViewAll } from "./DisplayMovieViewAll";
 import { PopupAddToList } from "../../components/popup-add-to-List/PopupAddToList";
 import { FooterSection } from "../../components/Footer/FooterSection";
 import "./viewAllMoviePage.css";
+import { api } from "../../main";
 
 export function ViewAllMoviePage({ isLists, setIsLists }) {
   const navigate = useNavigate();
@@ -44,7 +45,7 @@ export function ViewAllMoviePage({ isLists, setIsLists }) {
     const loadDataMovie = async () => {
       try {
         let response = await axios.get(
-          `https://api.themoviedb.org/3/${genrePath}?api_key=cb8d9a517e7387524c6cd936f1752bc0${detail}&page=${page}`,
+          `https://api.themoviedb.org/3/${genrePath}?api_key=${api}${detail}&page=${page}`,
         );
         const data = response.data;
 
@@ -52,7 +53,7 @@ export function ViewAllMoviePage({ isLists, setIsLists }) {
         setTotalPage(data.total_pages);
 
         response = await axios.get(
-          `https://api.themoviedb.org/3/genre/${media_type}/list?api_key=cb8d9a517e7387524c6cd936f1752bc0`,
+          `https://api.themoviedb.org/3/genre/${media_type}/list?api_key=${api}`,
         );
 
         setGenreMovie(response.data.genres);

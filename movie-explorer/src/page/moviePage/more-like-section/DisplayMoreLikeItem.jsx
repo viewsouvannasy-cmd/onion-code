@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import axios from "axios";
+import { api } from "../../../main";
 
 export function DisplayMoreLikeItem({ movie }) {
   const [addDetail, setAddDetail] = useState([]);
@@ -10,7 +11,7 @@ export function DisplayMoreLikeItem({ movie }) {
   useEffect(() => {
     const fetchDetail = async () => {
       const response = await axios.get(
-        `https://api.themoviedb.org/3/${movie.media_type}/${movie.id}?api_key=cb8d9a517e7387524c6cd936f1752bc0&append_to_response=credits`,
+        `https://api.themoviedb.org/3/${movie.media_type}/${movie.id}?api_key=${api}&append_to_response=credits`,
       );
 
       setRandomGenre(Math.floor(Math.random() * response.data.genres.length));

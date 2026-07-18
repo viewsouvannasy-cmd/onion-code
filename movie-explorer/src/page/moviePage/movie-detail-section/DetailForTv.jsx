@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { DisplayEpisodes } from "./DisplayEpisodes";
+import { api } from "../../../main";
 
 export function DetailForTv({ detailMovie, movieId }) {
   const [seasonNumber, setSeasonNumber] = useState(1);
@@ -12,7 +13,7 @@ export function DetailForTv({ detailMovie, movieId }) {
     const fetchSeasonInfo = async () => {
       try {
         const response = await axios.get(
-          `https://api.themoviedb.org/3/tv/${movieId}/season/${seasonNumber}?api_key=cb8d9a517e7387524c6cd936f1752bc0`,
+          `https://api.themoviedb.org/3/tv/${movieId}/season/${seasonNumber}?api_key=${api}`,
         );
         setSeasonInfo(response.data);
         setIsLoading(false);

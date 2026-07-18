@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import axios from "axios";
 import "./SectionSearch.css";
+import { api } from "../../../main";
 
 export function SectionSearch({ containmentState }) {
   const [backdrop, setBackdrop] = useState(null);
@@ -30,7 +31,7 @@ export function SectionSearch({ containmentState }) {
   useEffect(() => {
     const loadBackdrop = async () => {
       let response = await axios.get(
-        `https://api.themoviedb.org/3/${containmentState.genrePath}?api_key=cb8d9a517e7387524c6cd936f1752bc0${containmentState.detail}`,
+        `https://api.themoviedb.org/3/${containmentState.genrePath}?api_key=${api}${containmentState.detail}`,
       );
 
       const imageArray = response.data.results
@@ -44,7 +45,7 @@ export function SectionSearch({ containmentState }) {
       setBackdrop(imageArray[randomBackdrop]);
 
       response = await axios.get(
-        `https://api.themoviedb.org/3/genre/${containmentState.media_type || "movie"}/list?api_key=cb8d9a517e7387524c6cd936f1752bc0`,
+        `https://api.themoviedb.org/3/genre/${containmentState.media_type || "movie"}/list?api_key=${api}`,
       );
 
       setGenresMovie(response.data.genres.slice(0, 15));
