@@ -4,7 +4,7 @@
   align-items: center;
   flex-direction: column;
   margin-top: 30px;
-  padding: 0 30px;
+  padding: 0 20px;
 }
 
 .container-trending-section {
@@ -24,7 +24,7 @@
   width: 100%;
   justify-content: center;
   margin-top: 10px;
-  padding: 0 30px;
+  padding: 0 20px;
 }
 
 .container-movie-trending {

@@ -108,3 +108,9 @@
   background-color: #b45a82;
   border: 1px solid #b45a82;
 }
+
+@media (max-width: 500px) {
+  .option-genre-btn:last-child {
+    display: none;
+  }
+}
