@@ -35,7 +35,6 @@ export function AwardsSection() {
         <div className="container-award-section">
           <div className="container-title-award">
             <h3>Mosts Votes</h3>
-            <a>view all</a>
           </div>
         </div>
       </div>

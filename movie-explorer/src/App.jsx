@@ -12,6 +12,7 @@ import { ViewAllMoviePage } from "./page/viewAllMoviePage/ViewAllMoviePage";
 import { MoviePage } from "./page/moviePage/MoviePage";
 import { CastAndCrewPage } from "./page/castAndCrewPage/CastAndCrewPage";
 import { SearchPage } from "./page/searchPage/SearchPage";
+import { ErrorPage } from "./page/errorPage/ErrorPage";
 
 import "./styles/animation.css";
 
@@ -69,6 +70,8 @@ function App() {
       />
 
       <Route path="search/:type/:page" element={<SearchPage />} />
+
+      <Route path="*" element={<ErrorPage />} />
     </Routes>
   );
 }
